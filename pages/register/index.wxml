@@ -1,0 +1,33 @@
+<view class="login">
+    <image src="../../static/image/login_top.png" class="login_top_image" mode="widthFix"></image>
+    <view class="login_send">注册</view>
+    <view class="login-center">
+        <image src="../../static/image/phone.png" mode="widthFix" style="width: 25rpx;" />
+        <input name="mobile" type='number' placeholder="请输入手机号码" bindinput="phoneinput" value='{{mobile}}' maxlength="11" />
+    </view>
+    <view class="login-center">
+        <image src="../../static/image/code.png" mode="widthFix" />
+        <input wname="code" type='number' placeholder="请输入验证码" bindinput="codeinput" value='{{code}}' maxlength="6" />
+        <view class="login-code">
+            <view wx:if="{{isCode}}" bindtap="handleCode">
+                获取验证码
+            </view>
+            <view wx:else>
+                {{time + 's'}}
+            </view>
+        </view>
+    </view>
+    <view class="login-center">
+        <image src="../../static/image/password.png" mode="widthFix" />
+        <input name="password" type='password' placeholder="设置8-16位由数字和字母组成的密码" bindinput="pwdinput" value='{{password}}' maxlength="16" style="width: 100%;" />
+    </view>
+    <view class="login_mobile" bindtap="onLogin">注册</view>
+    <view class="login-password">
+        <van-checkbox model:value="{{ checked }}" shape="square" icon-size="12px"  checked-color="#D616F1" bind:change="onChange">
+        </van-checkbox>
+        我已阅读并同意
+        <view>《用户协议》、</view>
+        <view>《隐私政策》</view>
+    </view>
+    <van-toast id="van-toast" />
+</view>

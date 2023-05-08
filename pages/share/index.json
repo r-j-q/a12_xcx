@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "notData":"../../components/notData"
+    },
+    "navigationBarTitleText":"邀请好友 ",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorBottom": "#FCF0FF",
+    "backgroundColorTop": "#E72CD1", 
+    "navigationBarBackgroundColor": "#E72CD1"
+  }

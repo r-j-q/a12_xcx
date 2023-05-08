@@ -1,0 +1,50 @@
+.result{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #FCF0FF 0%, #F4EEFF 100%);
+}
+.mg{
+    width: 90%;
+    margin: auto;
+    min-height:40%;
+    max-height: 90%;
+    margin-top: 20rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    overflow-y: scroll;
+}
+.top{
+    width: 100%;
+    height: 100rpx;
+    display: flex;  
+    background-color: #E134D9;
+    border-radius: 10rpx;
+    color: #fff;
+    font-size: 30rpx;
+}
+.top view{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+}
+.rows{
+    width: 100%;
+    display: flex;
+    height: 80rpx;
+}
+.rows text{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: pre;
+
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400rpx;
+    color: #999999;
+}

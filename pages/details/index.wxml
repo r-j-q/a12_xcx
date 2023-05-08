@@ -1,0 +1,167 @@
+<view class="order">
+    <view hidden="{{maskHidden == false}}" class="mask"></view>
+    <view class="canvas-box">
+        <canvas style="width:375px;height:667px;position:fixed;top:9999px" canvas-id="mycanvas" />
+    </view>
+    <view class='imagePathBox' hidden="{{maskHidden == false}}" catchtap="closeCard">
+        <image src="{{imagePath}}" class='shengcheng'></image>
+        <view class='baocun' catchtap='baocun' type='primary'>
+            <text>保存图片到相册</text>
+        </view>
+    </view>
+    <view class="order-top">
+        <image src="../../static/image/back.png" mode="widthFix" class="back"></image>
+        <image src="../../static/image/laba.png" class="laba"></image>
+        <text>{{orderObj.city}}{{orderObj.ball_lev == 0 ? '等级不限' :orderObj.ball_lev }}{{orderObj.ball_type == 1 ?'单打赛' : '双打赛'}} {{orderObj.ball_field}}</text>
+    </view>
+    <view class="order-center">
+        <image wx:if="{{orderObj.img.name}}" src="{{orderObj.img.name}}" class="order-img"></image>
+        <view class="rows">
+            <image src="../../static/image/o-tui.png"></image>
+            <view>场馆名</view>
+            <text>{{orderObj.ball_field}}</text>
+        </view>
+        <view class="rows">
+            <image src="../../static/image/o-work.png"></image>
+            <view>场馆编号</view>
+            <text>{{orderObj.serial_num}}</text>
+        </view>
+        <view class="rows">
+            <image src="../../static/image/o-date.png"></image>
+            <view>时间</view>
+            <text>{{orderObj.start_date}} - {{orderObj.end_date}}</text>
+        </view>
+        <view class="rows">
+            <image src="../../static/image/o-address.png"></image>
+            <view>位置</view>
+            <text>{{orderObj.place}}{{orderObj.address}}</text>
+            <image src="../../static/image/g-address.png" class="rights" bindtap="handleGomap" style="width: 60rpx;height:60rpx;right: -25rpx;margin-top: 20rpx;"></image>
+        </view>
+        <view class="rows">
+            <image src="../../static/image/o-call.png"></image>
+            <view>联系方式</view>
+            <text style="color: #982EDF;" >{{orderObj.mobile}}</text>
+
+            <view class="shenqing" bindtap="clipboardData" >复制</view>
+        </view>
+        <view class="rows">
+            <image src="../../static/image/o-level.png"></image>
+            <view>级别</view>
+            <text>{{orderObj.ball_lev == 0 ? '等级不限' :orderObj.ball_lev }}/{{orderObj.ball_type == 1 ?'单打' : '双打'}}</text>
+        </view>
+        <view class="rows">
+            <image src="../../static/image/o-money.png"></image>
+            <view>费用</view>
+            <text>{{orderObj.sign_fee}}元/人</text>
+        </view>
+        <view class="rows" bindtap="handleTuisai" wx:if="{{((status == 20 || status ==30 ||status ==  50) || member_id == orderObj.member_id) && status !== 0  && status !== 70 && status !== 80}}">
+            <image src="../../static/image/o-tui.png"></image>
+            <view>退赛</view>
+            <text style="color: #BE5353;">24小时内不可退赛</text>
+            <view class="shenqing">申请退赛</view>
+        </view>
+        <view class="rows" bindtap="showList">
+            <image src="../../static/image/o-work.png"></image>
+            <view>已报名</view>
+            <text>{{orderObj.snatch_num}}/{{orderObj.people_num}}人</text>
+            <image src="../../static/image/right.png" class="rights"></image>
+        </view>
+    </view>
+    <view class="share" bindtap="showShare">
+        <image src="../../static/image/share.png"></image>
+
+    </view>
+
+    <view class="order-rule">
+        <view class="order-border">
+            <image src="../../static/image/border.png" mode="widthFix"></image>
+            <text>约球说明</text>
+        </view>
+        <view class="border" wx:if="{{orderObj.remarks}}">
+            <view>{{orderObj.remarks}}</view>
+        </view>
+        <image src="../../static/image/gonghao.png" class="hao" mode="widthFix" bindtap="showGong"></image>
+        <view class="order-swp">
+            <van-checkbox model:value="{{ checked }}" shape="round" checked-color="#C005F2" bind:change="onChange" icon-size="16px">
+            </van-checkbox>
+            我已阅读并同意
+            <view style="margin-left: 20rpx;  color: #D616F1;" bindtap="onXucotent">报名须知</view>
+        </view>
+    </view>
+
+    <view class="order-sign" wx:if="{{orderObj.member_id == member_id && status == 0}}">已取消</view>
+    <view class="order-sign" wx:if="{{orderObj.member_id == member_id && status !== 0}}">我发起的</view>
+    <view wx:else="">
+        <view class="order-sign" bindtap="handleUp" wx:if="{{ status == 10 }}">
+            我要报名
+        </view>
+        <view class="order-sign" wx:if="{{status == 20}}">
+            已报名
+        </view>
+        <view class="order-sign" wx:if="{{status == 30}}">
+            已报满
+        </view>
+
+        <view class="order-sign" wx:if="{{status == 50}}">
+            报名中
+        </view>
+        <view class="order-sign" wx:if="{{status == 60}}">
+            已截止
+        </view>
+        <view class="order-sign" wx:if="{{status == 70}}">
+            进行中
+        </view>
+        <view class="order-sign" wx:if="{{status == 80}}">
+            已结束
+        </view>
+    </view>
+
+
+    <view class="move" wx:if="{{isSuccess}}">
+        <view class="block">
+            <image src="../../static/image/success.png" mode="widthFix"></image>
+            <text>恭喜您，报名成功</text>
+            <image src="../../static/image/close.png" mode="widthFix" class="close" bindtap="handleClose"></image>
+        </view>
+    </view>
+
+
+
+    <van-share-sheet show="{{ isPay }}" title="请选择支付方式" options="{{ options }}" bind:select="onSelect" bind:close="onClose" />
+    <view class="move" wx:if="{{isNameList}}" catchtap="hideList">
+        <view class="center">
+            <view class="move-top">
+                报名名单
+            </view>
+            <view class="move-list">
+                <view wx:for="{{orderObj.snatch_list}}" wx:key="index" class="move-cell">
+                    <image src="{{item.portrait}}" mode="" />
+                    <view class="move-row">
+                        <view>
+                            <text class="name">{{item.name}}</text>
+                            <text wx:if="{{index == 0}}" class="member">发起者</text>
+                        </view>
+                        <view class="move-title">
+                           等级:{{item.ball_lev}} - {{item.sex == 2 ?'男' : '女'}} - <text wx:if="{{index !== 0}}">约球次数:{{orderObj.member_snatch_count[item.member_id].order_type_1 || 0}}次</text><text wx:else>发起次数:{{orderObj.creat_order_count || 0}}次</text>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="move" wx:if="{{isGong}}" catchtap="hideList">
+        <view class="center" style="height: 620rpx">
+            <image src="../../static/image/code.jpg" class="qr-code" show-menu-by-longpress="{{true}}"></image>
+            <view class="guanzhu">长按识别二维码</view>
+            <view class="guanzhu">关注球星来啦公众号</view>
+        </view>
+    </view>
+    <van-toast id="van-toast" />
+    <van-dialog id="van-dialog" />
+
+    <van-action-sheet show="{{ isShare }}" cancel-text="取消" bind:cancel="onClose">
+        <view class="conme"> <button open-type="share" bindtap="wanted" hover-class="none">分享当前页面</button></view>
+        <view class="conme" bindtap="shareCome">生成图片</view>
+    </van-action-sheet>
+</view>

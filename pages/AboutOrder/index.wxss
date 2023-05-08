@@ -1,0 +1,30 @@
+@import '../train/index.wxss';
+@import '../home/index.wxss';
+
+.train-right {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+
+}
+
+.train-right view {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.train-right view text {
+    margin-right: 3rpx;
+    font-size: 30rpx;
+    color: #333333;
+}
+
+.ball-cell {
+    margin-top: 120rpx;
+}
+.data{
+    height: 100vh !important;
+}

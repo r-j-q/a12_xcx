@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "find":"../../components/find"
+    },
+    "navigationBarTitleText":"球星网球分级赛详情",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorBottom": "#FCF0FF",
+    "backgroundColorTop": "#E72CD1", 
+    "navigationBarBackgroundColor": "#E72CD1"
+  }

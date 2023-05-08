@@ -1,0 +1,9 @@
+<view class="edit">
+    <van-cell-group border="{{ false }}">
+        <van-field label="场馆名" model:value="{{ ball_field }}" placeholder="请输入场馆名" />
+        <van-field label="位置" model:value="{{ place }}" placeholder="请选择位置" bindtap="handleAddress" autosize readonly is-link />
+        <van-field model:value="{{ address }}" label="详细地址" placeholder="请输入详细地址" />
+        <van-field label="联系方式" model:value="{{ mobile }}" placeholder="请输入微信号或者手机号" maxlength="20" />
+    </van-cell-group>
+    <view class="order-sign" bindtap="handlesign">确认修改</view>
+</view>

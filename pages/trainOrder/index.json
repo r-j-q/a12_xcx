@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "notData":"../../components/notData"
+    },
+    "navigationBarTitleText":"培训订单",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#FCF0FF", 
+    "backgroundColorBottom": "#FCF0FF",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#E72CD1"
+  }

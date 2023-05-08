@@ -1,0 +1,61 @@
+<!--subpages/booking_settled/index.wxml-->
+<view class="index">
+    <view class="top">
+        <van-cell-group>
+            <van-field model:value="{{ name }}" clearable label="场馆名称" placeholder="请输入名称" />
+            <van-field model:value="{{ address }}" label="场馆详细地址" placeholder="请输入详细地址" />
+            <van-field model:value="{{ contacts  }}" label="联系人" placeholder="请输入联系人" />
+            <van-field model:value="{{ contact_phone  }}" label="联系人电话" placeholder="请输入联系人电话" />
+            <van-field model:value="{{ phone }}" label="场馆电话" placeholder="请输入场馆电话" />
+            <van-field label="营业开始时间" model:value="{{ start_time }}" placeholder="请选择营业开始时间" bindtap="onSetDate" readonly is-link data-val="isSignDate" />
+            <van-field label="营业结束时间" model:value="{{ end_time }}" placeholder="请选择营业结束时间" bindtap="onSetDate" readonly is-link data-val="isBallDate" />
+            <view class="logo">
+                <view class="logo_left">
+                    场馆LOGO
+                </view>
+                <view class="logo_right">
+                    <view class="logo_right_photos">
+                        <van-uploader file-list="{{ logo }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="logo" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                    </view>
+                    <van-icon name="arrow" />
+                </view>
+            </view>
+        </van-cell-group>
+    </view>
+    <view class="bottom">
+        <van-cell-group>
+            <van-field model:value="{{instruction}}" clearable label="场馆介绍" placeholder="说点什么吧..." type="textarea" autosize />
+            <view class="info">
+                <text>上传运营者身份照片</text>
+                <view>
+                    <van-uploader file-list="{{ fileList1 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="fileList1" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                    <van-uploader file-list="{{ fileList2 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="fileList2" bind:delete="onDelete" multiple />
+                </view>
+            </view>
+            <van-field model:value="{{ bank_card  }}" clearable label="收款个人账户或对公账户" />
+            <van-field model:value="{{ bank_name   }}" clearable label="开户行" />
+            <van-field model:value="{{ account_name   }}" clearable label="户名" />
+            <view class="info photos">
+                <text>球馆照片</text>
+                <view>
+                    <van-uploader class="photos_image" file-list="{{ photos1 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="photos1" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                    <van-uploader class="photos_image" file-list="{{ photos2 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="photos2" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                    <van-uploader class="photos_image" file-list="{{ photos3 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="photos3" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                    <van-uploader class="photos_image" file-list="{{ photos4 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="photos4" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                    <van-uploader class="photos_image" file-list="{{ photos5 }}" max-count="1" bind:after-read="onAfterRead" deletable="{{ true }}" data-type="photos5" bind:delete="onDelete" multiple style="margin-right: 20rpx;" />
+                </view>
+            </view>
+        </van-cell-group>
+    </view>
+    <view class="submit" bindtap="onSubmit">
+        提交
+    </view>
+    <!--开始时间-->
+    <van-popup show="{{ isSignDate }}" bind:close="onClose" position="bottom" z-index="10000">
+        <van-datetime-picker bind:cancel="onClose" bind:confirm="confirmStart" type="time" />
+    </van-popup>
+    <!--结束时间-->
+    <van-popup show="{{ isBallDate }}" bind:close="onClose" position="bottom" z-index="10000">
+        <van-datetime-picker bind:cancel="onClose" bind:confirm="confirmEnd" type="time" />
+    </van-popup>
+</view>

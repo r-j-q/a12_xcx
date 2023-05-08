@@ -1,0 +1,133 @@
+<view class="part">
+    <view class="part-card">
+        <view class="status">{{orderObj.status_display}}</view>
+        <view class="card" style="background-color:{{orderObj.color || '#982EDF'}};">
+            <text>培训</text>
+            <text>{{orderObj.ball_lev}}星球</text>
+        </view>
+        <view class="date">{{orderObj.start_date}} {{orderObj.ball_lev}} {{orderObj.ball_type == 10 ?'单次' : '多次'}}课</view>
+    </view>
+    <view class="part-center">
+        <view class="order-border">
+            <image src="../../static/image/border.png" mode="widthFix"></image>
+            <text>培训说明</text>
+        </view>
+        <view class="table">
+            <view>
+                <text>培训类型</text>
+                <text>{{orderObj.ball_type == 10 ?'单次' : '多次'}}</text>
+            </view>
+            <view>
+                <text>培训课次</text>
+                <text>{{orderObj.batch}}次</text>
+            </view>
+        </view>
+        <view class="table">
+            <view>
+                <text>球星级别</text>
+                <text>{{orderObj.ball_lev}}</text>
+            </view>
+            <view bindtap="showList">
+                <text>报名人数</text>
+                <text>{{orderObj.snatch_num}}/{{orderObj.people_num}}</text>
+            </view>
+        </view>
+        <view class="detail">
+            <image src="../../static/image/blance.png"></image>
+            <view>单人费用<text>￥{{orderObj.sign_fee}}</text></view>
+        </view>
+        <view class="detail">
+            <image src="../../static/image/c-date.png"></image>
+            <view>报名时间<text>{{orderObj.deadline}}</text></view>
+        </view>
+        <view class="detail">
+            <image src="../../static/image/c-date1.png"></image>
+            <view>开始时间<text>{{orderObj.start_date}}</text></view>
+        </view>
+        <view class="detail">
+            <image src="../../static/image/c-date1.png"></image>
+            <view>结束时间<text>{{orderObj.end_date}}</text></view>
+        </view>
+        <view class="detail" style="">
+            <image src="../../static/image/c-path.png"></image>
+            <view>培训地点<text>{{orderObj.place}}{{orderObj.address}}</text></view>
+            <image src="../../static/image/g-address.png" mode="widthFix" class="address" bindtap="handleGomap"></image>
+        </view>
+        <view class="detail"  wx:if="{{((status == 20 || status ==30 ||status ==  50) || member_id == orderObj.member_id) && status !== 0 && status !== 70 && status !== 80}}">
+            <view class="tuisai" bindtap="handleTuisai">取消培训</view>
+        </view>
+        <view class="order-border" style="border-top: 1px solid #dddddd; padding-top: 30rpx;border-bottom: none;">
+            <image src="../../static/image/border.png" mode="widthFix"></image>
+            <text>培训内容</text>
+        </view>
+        <view class="border">
+            <view>{{orderObj.content}}</view>
+
+        </view>
+        <!-- <view class="order-swp">
+            <van-checkbox model:value="{{ checked }}" shape="round" checked-color="#C005F2" bind:change="onChange" icon-size="16px">
+            </van-checkbox>
+            我已阅读并同意
+            <view style="margin-left: 20rpx;  color: #D616F1;">报名须知</view>
+        </view> -->
+    </view>
+
+
+    <view class="order-sign" wx:if="{{orderObj.member_id == member_id && status == 0}}">已取消</view>
+    <view class="order-sign" wx:if="{{orderObj.member_id == member_id && status !== 0}}">我发起的</view>
+    <view wx:if="{{orderObj.member_id !== member_id}}">
+        <view class="order-sign" bindtap="handleUp" wx:if="{{ status == 10 }}">
+            我要报名
+        </view>
+        <view class="order-sign" wx:if="{{status == 20}}">
+            已报名
+        </view>
+        <view class="order-sign" wx:if="{{status == 30}}">
+            已报满
+        </view>
+
+        <view class="order-sign" wx:if="{{status == 50}}">
+            报名中
+        </view>
+        <view class="order-sign" wx:if="{{status == 60}}">
+            已截止
+        </view>
+        <view class="order-sign" wx:if="{{status == 70}}">
+            进行中
+        </view>
+        <view class="order-sign" wx:if="{{status == 80}}">
+            已结束
+        </view>
+    </view>
+
+
+
+
+    <view class="move" wx:if="{{isSuccess}}">
+        <view class="block">
+            <image src="../../static/image/success.png" mode="widthFix"></image>
+            <text>恭喜您，报名成功</text>
+            <image src="../../static/image/close.png" mode="widthFix" class="close" bindtap="handleClose"></image>
+        </view>
+
+    </view>
+
+    <view class="move" wx:if="{{isNameList}}" catchtap="hideList">
+        <view class="center">
+            <view class="move-top">
+                报名名单
+            </view>
+            <view class="move-list">
+                <view wx:for="{{orderObj.snatch_list}}" wx:key="index" class="move-cell">
+                    <image src="{{item.portrait}}" mode="" />
+                    <text class="name">{{item.name}} - {{item.ball_lev}} - {{item.sex == 2 ?'男' : '女'}}</text>
+                    <text wx:if="{{index == 0}}" class="member">发起者</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <van-share-sheet show="{{ isPay }}" title="请选择支付方式" options="{{ options }}" bind:select="onSelect" bind:close="onClose" />
+    <van-toast id="van-toast" />
+    <van-dialog id="van-dialog" />
+</view>

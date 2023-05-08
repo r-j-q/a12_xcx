@@ -1,0 +1,21 @@
+<view class="bonuslist">
+    <view class="list-top">
+        <image src="../../static/image/card.png" ></image>
+        <text class="date">（{{start_date}}-{{end_date}}）</text>
+        <view class="cells">
+            <view class="rows">
+                <view wx:for="{{tabList}}" wx:key="index" class="{{'active' + index}}">{{item}}</view>
+            </view>
+            <scroll-view slot="content" scroll-y="true" style="height: 82%;margin-top: 10rpx;" bindscrolltolower="lower" bindscrolltolower="handleRefresher"  class="row">
+                    <view wx:for="{{list}}" wx:key="index" class="{{'row' + index}}">
+                        <view class="active0">{{item.name}}</view>  
+                        <view class="active1">{{item.sex == 2 ? '男' : '女'}}</view>  
+                        <view class="active2">{{item.ball_lev}}</view>  
+                        <view class="active3">{{item.integral}}</view>  
+                        <view class="active4">{{item.num}}</view>  
+                        <view class="active5">{{item.amount}}</view>  
+                    </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

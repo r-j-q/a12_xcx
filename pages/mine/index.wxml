@@ -1,0 +1,80 @@
+<view class="mine">
+    <image src="../../static/image/mine_top.png" mode="widthFix" class="mine-top" />
+    <view class="mine-user">
+        <image src="{{portrait}}" />
+        <view>
+            <text class="mine-name">{{name}}</text>
+            <text>{{ball_lev>0 ? ball_lev : '新人'}}</text>
+        </view>
+        <view class="kefu" bindtap="handleKefu">
+            <image src="../../static/image/kefu.png"></image>
+            <text>联系客服</text>
+        </view>
+    </view>
+    <view class="mine-account">
+        <view>
+            <van-icon name="question" bindtap="showquestion" />
+            <text class="sum">{{outstanding_balance}}</text>
+            <text>冻结的金额</text>
+
+        </view>
+        <view bindtap="handleBlance">
+            <text class="sum">{{balance}}</text>
+            <text>余额</text>
+        </view>
+        <view bindtap="integralDetails">
+            <text class="sum">{{integral}}</text>
+            <text>积分</text>
+        </view>
+        <view bindtap="handleMoney">
+            <text class="sum">{{bonus}}</text>
+            <text>奖金</text>
+        </view>
+        <view style="width: 30%;">
+            <van-icon name="question" bindtap="showquestion" data-type="2" />
+            <text class="sum">{{freeze_invite_account}}</text>
+            <text>待解冻邀请奖金</text>
+
+        </view>
+    </view>
+    <view class="mine-center">
+        <view class="mine-order">订单中心</view>
+        <view class="mine-flex">
+            <view bindtap="handleAboutOrder">
+                <image src="../../static/image/green_order.png" />
+                <text>约球订单</text>
+            </view>
+            <view bindtap="handleSeletttOrder">
+                <image src="../../static/image/about_order.png" />
+                <text>球星分级赛订单</text>
+            </view>
+            <view bindtap="handleTranOrder">
+                <image src="../../static/image/orange_order.png" />
+                <text>培训订单</text>
+            </view>
+        </view>
+    </view>
+    <view class="mine-bottom">
+        <view class="mine-order">用户信息</view>
+        <view wx:for="{{list}}" wx:key="index" class="mine-cell" data-index="{{index}}" bindtap="handleto">
+            <image src="{{item.url}}"></image>
+            <text>{{item.label}}</text>
+            <van-icon name="arrow" />
+        </view>
+    </view>
+
+    <view class="move" wx:if="{{isService}}">
+        <view class="block">
+            <image src="../../static/image/laile.png" class="laile"></image>
+
+            <view>管理员微信: qx2022a </view>
+            <view>管理员电话: 13261370655</view>
+            <view>管理员电话: 18410012383</view>
+            <image src="../../static/image/kefu.jpg" class="code" show-menu-by-longpress="{{true}}"></image>
+            <view>扫一扫，联系客服</view>
+            <view class="queren" bindtap="onSure">确认</view>
+        </view>
+
+    </view>
+    <van-dialog id="van-dialog" />
+</view>

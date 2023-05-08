@@ -1,0 +1,44 @@
+<view class="train">
+
+    <!-- <view class="train-right">
+        <view wx:for="{{tabs}}" wx:key="index" class="{{index == currentIndex ? 'active' : ''}}" data-index="{{index}}" bindtap="handleTabclick">
+            <text>{{item}}</text>
+            <image src="../../static/image/bottom.png" wx:if="{{currentIndex == index}}"></image>
+        </view>
+    </view> -->
+    <view class="train-send" wx:if="{{list.length > 0}}">
+        <view wx:for="{{list}}" wx:key="index" class="cell" bindtap="handleDetils" data-id="{{item.order_id}}">
+            <view class="top">
+                <view class="left" style="background-color: {{item.color || '#4B7CDE'}};">
+                    <text class="sum">培训</text>
+                    <text>{{item.ball_lev}}星球</text>
+                    <view>{{item.status_display}}</view>
+                </view>
+                <view class="right">
+                    <view class="right-name">{{item.start_date}} {{item.ball_lev}} {{item.ball_type == 10 ?'单次' : '多次'}}课</view>
+                    <view>
+                        <image src="../../static/image/date.png" mode="widthFix"></image>
+                        <text>报名:{{item.deadline}}</text>
+                    </view>
+                    <view>
+                        <image src="../../static/image/date.png" mode="widthFix"></image>
+                        <text>开赛:{{item.start_date}}</text>
+                    </view>
+                    <view>
+                        <image src="../../static/image/address1.png" mode="widthFix"></image>
+                        <text>地址:{{item.place}}{{item.address}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom">
+                <view class="pay" wx:if="{{currentIndex !== 0}}">
+                    查看详情
+                </view>
+                <view class="pay" wx:if="{{currentIndex == 0}}">
+                    立即支付
+                </view>
+            </view>
+        </view>
+    </view>
+    <notData wx:else />
+</view>

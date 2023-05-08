@@ -1,0 +1,22 @@
+@import '../about/index.wxss';
+.text-area {
+    width: 96%;
+    background: #F5F5F5;
+    margin: auto;
+    border-radius: 10rpx;
+   
+}
+
+.weui-textarea {
+    width: 92%;
+    margin: auto;
+    background: #F5F5F5;
+    margin-top: 15rpx;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    word-wrap: break-word;
+    white-space: pre-line;
+
+}

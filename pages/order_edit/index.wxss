@@ -1,0 +1,19 @@
+.edit{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.order-sign {
+    width: 92%;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80rpx;
+    margin: auto;
+    margin-top: 180rpx;
+    margin-bottom: 140rpx;
+    font-size: 34rpx;
+    color: #FFFFFF;
+    background: linear-gradient(180deg, #9F00B6 0%, #FF4BBD 100%);
+}

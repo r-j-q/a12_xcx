@@ -1,0 +1,58 @@
+<view class="train">
+    <view class="train-top">
+        <view class="train-left">
+            <view bindtap="handleAddress" class="address">
+                <image src="../../static/image/address.png" mode="widthFix"></image>
+                <text>{{city}}</text>
+            </view>
+                <van-search model:value="{{ key_word }}" background="#fff" placeholder="请输入关键词" clearable="{{false}}" maxlength="10" bind:search="onSearch"  class="serch"/>     
+        </view>
+        <view class="train-right">
+            <view wx:for="{{tabs}}" wx:key="index" class="{{index == currentIndex ? 'active' : ''}}" data-index="{{index}}" bindtap="handleTabclick">
+                <text>{{item}}</text>
+                <image src="../../static/image/bottom.png" wx:if="{{currentIndex == index}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="train-send" wx:if="{{list.length > 0}}">
+        <view wx:for="{{list}}" wx:key="index" class="cell"  bindtap="handleDetils" data-id="{{item.order_id}}">
+            <view class="top">
+                <view class="left"  style="background-color: {{item.color || '#4B7CDE'}};">
+                    <text class="sum">培训</text>
+                    <text>{{item.ball_lev}}星球</text>
+                    <view>{{item.status_display}}</view>
+                </view>
+                <view class="right">
+                    <view class="right-name">{{item.start_date}} {{item.ball_lev}} {{item.ball_type == 10 ?'单次' : '多次'}}课</view>
+            <view>
+                <image src="../../static/image/date.png" mode="widthFix"></image>
+                <text>报名:{{item.deadline}}</text>
+            </view>
+            <view>
+                <image src="../../static/image/date.png" mode="widthFix"></image>
+                <text>开赛:{{item.start_date}}</text>
+            </view>
+            <view>
+                <image src="../../static/image/address1.png" mode="widthFix"></image>
+                <text>地址:{{item.place}}{{item.address}}</text>
+            </view>
+                </view>
+            </view>
+            <view class="bottom">
+                <view>
+                    <image src="../../static/image/num.png"></image>
+                    <text>{{item.snatch_num}}/{{item.people_num}}</text>
+                </view>
+                <view>
+                    <image src="../../static/image/blance.png"></image>
+                    <text>￥{{item.sign_fee}}</text>
+                </view>
+            </view>
+    </view>
+    </view>
+    <notData  wx:else/>
+    <van-popup show="{{ isAddress }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="请选择" bind:cancel="cancel" bind:confirm="confirm" model:value="{{value}}" />
+    </van-popup>
+    <image src="../../static/image/create.png"  class="sign-about" catchtap="onAbount" wx:if="{{member_lev}}"/>
+</view>

@@ -1,0 +1,9 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText":"球星奖金榜",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#E72CD1", 
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#E72CD1"
+  }

@@ -1,0 +1,27 @@
+<view class="move">
+    <view class="movbe">
+        <van-search model:value="{{ key_word }}" background="#fff" placeholder="输入队友用户名或手机号" clearable="{{false}}" bind:search="onSearch" class="serch"    use-action-slot>
+        <view slot="action" bind:tap="onClick" class="sousuo" bindtap="onSearch">搜索</view>
+        </van-search>
+        <view class="move-tab">
+            <view wx:for="{{list}}" wx:key="index" data-id="{{item.member_id}}" bindtap="onMemberid" class="{{member_id == item.member_id ? 'active' : ''}}">
+                <image src="{{item.portrait}}"></image>
+                <text>{{item.name}}</text>
+                <text class="dengji">{{item.ball_lev}}</text>
+            </view>
+
+        </view>
+        <view class="bor-btom">
+           
+            <view bindtap="onCancel">
+                确认
+            </view>
+            <view bindtap="cancel" class="cancel">
+                取消
+            </view>
+        </view>
+
+    </view>
+
+
+</view>

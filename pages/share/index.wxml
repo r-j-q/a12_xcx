@@ -1,0 +1,19 @@
+<view class="share">
+<view wx:if="{{list.length > 0}}">
+    <view wx:for="{{list}}" wx:key="index" class="cell">
+        <text class="index">{{index +1 }}</text>
+        <image src="{{item.portrait}}"/>
+        <view>
+            <text class="name">{{item.name}}</text>
+            <text class="cishu">约球次数:{{item.order_type_1}}次   分级赛次数:{{item.order_type_3}}次</text>
+        </view>
+    </view>
+</view>
+ <view wx:else="" style="margin-top: 50%;">
+     
+    <notData></notData>
+ </view>
+ 
+
+
+</view>

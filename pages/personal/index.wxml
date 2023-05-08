@@ -1,0 +1,55 @@
+<view class="personal">
+    <view class="personal-top">
+        <van-cell-group border="{{ false }}">
+            <view class="call">
+                <van-field label="头像" readonly  placeholder="请选择头像"  />
+                <view class="comint" style="width: 78%;height: 100%;position: absolute;right: 0rpx;z-index: 111;">
+                    <image class="portrait" wx:if="{{portrait}}" src="{{portrait}}"></image>
+                    <button open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" size="mini"></button>
+                </view>
+            </view>
+            <van-field label="用户名" model:value="{{ name }}" placeholder="请输入用户名" />
+            <!-- <van-field label="姓名" model:value="{{ real_name }}" placeholder="请输入真实姓名"  />
+            <van-field label="身份证号" model:value="{{ id_num }}" placeholder="请输入身份证号"  /> -->
+            <van-field label="手机号" model:value="{{ mobile }}" placeholder="请输入手机号" type="number" disabled />
+         
+            <van-field label="等级" model:value="{{ ball_lev }}" placeholder="请选择等级" bindtap="handleGrade" readonly is-link />
+            <view class="zhuce">
+                注册后等级只能修改一次,请慎重填写
+            </view>
+            <van-field label="生日" model:value="{{ birthday }}" placeholder="请选择生日" bindtap="handlebirthday" readonly is-link   wx:if="{{edit}}"/>
+            <van-field label="性别" model:value="{{ sex }}" placeholder="请选择性别" bindtap="handleSex" readonly is-link />
+          
+        </van-cell-group>
+    </view>
+    <view class="personal-top" wx:if="{{edit}}">
+        <view class="call">
+            <van-field label="身高" model:value="{{ height }}" placeholder="请输入身高"  type="number" />
+            <view class="comint">cm</view>
+        </view>
+        <view class="call">
+            <van-field label="体重" model:value="{{ weight }}" placeholder="请输入体重"   type="number"/>
+            <view class="comint">kg</view>
+        </view>
+        <van-field label="城市" model:value="{{ city }}" placeholder="请选择城市" bindtap="handleAddress" readonly is-link />
+        <van-field label="学校" model:value="{{ shoole }}" placeholder="请输入学校" />
+        <van-field model:value="{{ autograph }}" label="签名" placeholder="请输入签名"   />
+    </view>
+    <view class="order-sign" bindtap="handlesign">保存</view>
+    <!--生日-->
+    <van-popup show="{{ isBrthday }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-datetime-picker type="date" value="{{ currentDate }}" bind:cancel="onClose" bind:confirm="confirm" min-date="{{ minDate }}" max-date="{{maxDate}}" formatter="{{ formatter }}" />
+    </van-popup>
+    <!--性别-->
+    <van-popup show="{{ isSex }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-picker columns="{{ columns }}" bind:cancel="onClose" bind:confirm="confirmSex" show-toolbar />
+    </van-popup>
+
+    <van-popup show="{{ isAddress }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-area area-list="{{ areaList }}" columns-num="{{ 3 }}" title="请选择" bind:cancel="onClose" bind:confirm="confirmAddress" model:value="{{value}}" />
+    </van-popup>
+
+    <van-popup show="{{ isGrade }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-picker columns="{{ gradeList }}" bind:cancel="onClose" bind:confirm="confirmGrade" show-toolbar />
+    </van-popup>
+</view>

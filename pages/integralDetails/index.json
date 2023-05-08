@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "notData":"../../components/notData"
+    },
+    "navigationBarTitleText":"积分明细",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#E72CD1", 
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#E72CD1"
+  }

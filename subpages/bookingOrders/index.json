@@ -1,0 +1,9 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText":"订场订单-羽毛球",
+    "enablePullDownRefresh":false,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#E72CD", 
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#58AD6A"
+}

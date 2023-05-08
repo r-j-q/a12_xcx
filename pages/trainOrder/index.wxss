@@ -1,0 +1,39 @@
+@import '../train/index.wxss';
+
+.train-right {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.train-send {
+    margin-top: 30rpx;
+    padding-bottom: 40rpx;
+}
+
+.bottom .cancel {
+    width: 176rpx;
+    height: 67rpx;
+    background: #CDCDCD;
+    border-radius: 55px 55px 55px 55px;
+    opacity: 1;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    color: #FFFFFF;
+    font-size: 30rpx;
+}
+.data{
+    height: 100vh !important;
+}
+
+.bottom .pay {
+    width: 176rpx;
+    height: 67rpx;
+    background: linear-gradient(90deg, #F71EFE 0%, #B80EE4 100%);
+    border-radius: 55px 55px 55px 55px;
+    opacity: 1;
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+}

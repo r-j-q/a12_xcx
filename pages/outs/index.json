@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "notData":"../../components/notData"
+    },
+    "navigationBarTitleText":"查看赛况",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#F4EEFF", 
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#E72CD1"
+
+  }

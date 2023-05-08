@@ -1,0 +1,128 @@
+@import '../details/index.wxss';
+.stars {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background: #FCF0FF;
+}
+
+.stars-center {
+    width: 92%;
+    background: #fff;
+    margin: auto;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+    padding-bottom: 50rpx;
+}
+
+.stars-center .rows {
+    display: flex;
+    min-height: 60rpx;
+    padding: 20rpx 0 20rpx 0;
+    align-items: center;
+
+    position: relative;
+}
+.wenhao .van-icon{
+    width: 20rpx;
+    margin: 0;
+}
+.rows image {
+    width: 28rpx;
+}
+.rows view{
+    height: 100%;
+}
+.rows .height{
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+}
+.rows .height text{
+    width: auto;
+}
+.outs{
+    width: 200rpx;
+    height: 80rpx;
+    background-color: #E134D9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rpx;
+    margin: 20rpx;
+}
+
+.cells image {
+    margin: 0;
+    margin-left: 20rpx;
+}
+
+.rows .cells {
+    width: 220rpx;
+    border: 1px solid #982EDF;
+    border-radius: 10rpx;
+    height: 60rpx;
+    display: flex;
+    color: #333333;
+    font-size: 28rpx;
+    align-items: center;
+}
+
+.rows view {
+    width: 340rpx;
+    color: #666666;
+    font-size: 26rpx;
+    margin-left: 30rpx;
+    word-break: break-all;
+}
+
+.cells text {
+    margin-left: 20rpx;
+}
+.rule{
+    color: #666666;
+    font-size: 26rpx;
+    margin-left: 30rpx;
+    word-break: break-all;
+    margin-top: 8rpx;
+    white-space: break-spaces;
+}
+.order-border{
+    margin-bottom: 30rpx;
+}
+.tuisai{
+    width: 220rpx;
+    border: 1px solid #982EDF;
+    border-radius: 10rpx;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30rpx;
+    color: #999999;
+    font-size: 28rpx;
+
+}
+.conme{
+    width: 90%;
+    margin: auto;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+}
+.name{
+    font-size: 30rpx;
+    width: 38%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.van-share-sheet__name {
+    color: #646566;
+    margin: 0 12px;
+    margin-top: 8px;
+}

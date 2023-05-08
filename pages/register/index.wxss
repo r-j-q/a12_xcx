@@ -1,0 +1,12 @@
+@import '../mobileLogin//index.wxss';
+.login_send {
+    top: 150rpx;
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+    color: #FFFFFF;
+    position: absolute;
+    font-size: 44rpx;
+    font-weight: 400;
+}

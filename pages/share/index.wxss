@@ -1,0 +1,40 @@
+
+.cell{
+    width: 96%;
+    height: 150rpx;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 10rpx;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+}
+.index{
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+.cell image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    margin-left: 40rpx;
+}
+.share{
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 40rpx;
+}
+
+.cell view{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20rpx;
+}
+.cell view .name{
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #E72CD1;
+}
+.cishu{
+    color: #ccc;
+}

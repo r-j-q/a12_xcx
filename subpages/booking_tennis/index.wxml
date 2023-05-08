@@ -1,0 +1,106 @@
+<!--pages/booking_tennis/index.wxml-->
+<view class="tennis">
+    <!-- 时间 -->
+    <view class="scroll_box">
+        <scroll-view scroll-x>
+            <view class="scroll_box_list" wx:for="{{dateList}}" wx:key="index" data-data="{{item}}" data-index="{{index}}" data-oldDate="{{oldDate}}" bindtap="changeDate">
+                <view>
+                    <text>{{item.date}}</text>
+                    <text class="{{index === box_active?'scroll_box_list_active':''}}">{{item.week}}</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 场次 -->
+    <view class="table">
+        <scroll-view class="table_scroll" scroll-x>
+            <view class="table_scroll_list">
+                <view class="table_header">
+                    <view style="width: {{item === ' '?'100rpx':'200rpx'}};margin-right: {{item === ' '?'20rpx':''}};" wx:for="{{headerList}}" wx:key="index">
+                        {{item}}
+                    </view>
+                </view>
+                <view class="table_body">
+                    <view wx:for="{{newDataList}}" wx:key="index">
+                        <view class="table_body_date" wx:if="{{item.key === '时间'}}" wx:for="{{item.value}}" wx:key="index" wx:for-item='data'>
+                            {{data.time}}
+                        </view>
+                        <view class="table_body_item {{data.state === 0?'itemActive0':data.state===1?'itemActive1':'itemActive2'}}" style="background-color: {{data.id === changeIndex?'#F2914A':''}};" wx:if="{{item.key !== '时间'}}" wx:for="{{item.value}}" wx:for-item="data" wx:key="data" data-number='{{item.key}}' data-value='{{data}}' data-index='{{data.id}}' bindtap="onItem">
+                            {{'¥'+data.price}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="table_fool">
+            <view style="width: 23%;text-align: center;font-size: 20rpx;" wx:for="{{tableColor}}" wx:key="index">
+                <view style="background-color: {{item.color}};height: 40rpx;width: 100%;">
+                </view>
+                <text>{{item.msg}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 支付 -->
+    <view class="play">
+        <view class="play_amount">
+            <text>预计金额:</text>
+            <text decode="true"> ¥{{amount}}</text>
+        </view>
+        <view class="play_options" bindtap="open">
+            <text>选好了</text>
+        </view>
+    </view>
+    <van-popup show="{{ show }}" position="bottom" bind:close="onClose">
+        <view class="my_popup">
+            <view>
+                <view class="xq">
+                    <view>
+                        <text>{{'球星网球汇'}}</text>
+                        <text style="font-size: 25rpx;">{{'(北京北苑店)'}}</text>
+                    </view>
+                    <view>
+                        >
+                    </view>
+
+                </view>
+                <view class="xx" style="margin-top: 20rpx;">
+                    <text>预定时间</text>
+                    <text decode="true">{{popinfo.date}} {{popinfo.week}}</text>
+                </view>
+                <view class="xx">
+                    <text>预定信息</text>
+                    <text decode="true">{{popinfo.name+' '+ popinfo.start_time+'-'+popinfo.end_time}} ¥{{popinfo.price}}元</text>
+                </view>
+            </view>
+            <view class="notify">
+                <text>订场须知</text>
+                <text>></text>
+            </view>
+            <view class="pay">
+                <text>选择支付方式</text>
+                <view>
+                    <van-radio-group value="{{ radio }}" bind:change="onChange" class="my_group">
+                        <van-radio name="balance">
+                            <image src="../../static/image/about.png" mode="" />
+                            <text style="padding-right: 15rpx;">余额支付</text>
+                            <text>{{'(余额8.43元)'}}</text>
+                        </van-radio>
+                        <van-radio name="wx_pay">
+                            <image src="../../static/image/about.png" mode="" />
+                            <text>微信支付</text>
+                        </van-radio>
+                    </van-radio-group>
+                </view>
+            </view>
+            <view class="payment">
+                <view>
+                    <text>实付金额:</text>
+                    <text>¥{{popinfo.amount/100}}</text>
+                </view>
+                <view bindtap="onSetInfo">
+                    <text>提交订单</text>
+                </view>
+            </view>
+        </view>
+    </van-popup>
+</view>

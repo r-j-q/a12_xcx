@@ -1,0 +1,32 @@
+<!--subpages/booking/index.wxml-->
+<view class="booking">
+    <view class="title">
+        <image src="../../static/image/banner1.jpg" mode="scaleToFill " />
+    </view>
+    <view class="content">
+        <view class="content_left">
+            <view class="content_left_nav" wx:for="{{navList}}" wx:key="index" data-type="{{item.type}}" bindtap="changeNav" style="background-color: {{item.type === type?'#58AD6A':''}};">
+                <image src="{{item.type === type?item.imgz:item.imgs}}" mode="widthFix" />
+                <text style="color: {{item.type === type?'#ffffff':'#000000'}};">{{item.msg}}</text>
+            </view>
+        </view>
+        <view class="content_right">
+            <view class="options">
+                <text bindtap="toBack">场馆入驻</text>
+                <text>我的预定</text>
+            </view>
+            <view class="list_content">
+                <scroll-view class="list_scroll" scroll-y="{{true}}" style="height: {{clientHeight}}px;" scroll-top="{{top}}" bindscrolltolower='onBottomRefresh'>
+                    <view class="item" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" bindtap="goBack">
+                        <view>
+                            <image src="../../static/image/banner1.jpg" mode="scaleToFill" />
+                        </view>
+                        <view>
+                            {{item.name}}
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</view>

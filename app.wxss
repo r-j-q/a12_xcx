@@ -1,0 +1,75 @@
+/**app.wxss**/
+page{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 28rpx;
+  background: #FCF0FF;
+}
+.move{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mask {
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0,0,0,0.7); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+  }
+  
+  .shengcheng {
+    width: 88%;
+    height: 64%;
+    position: relative;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+    display: flex;
+  }
+  
+  .baocun {
+    width: 74%;
+    height: 100rpx;
+    padding: 0;
+    background: linear-gradient(180deg, #9F00B6 0%, #FF4BBD 100%);
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+    border-radius: 50rpx;
+    margin: auto;
+    margin-top: 190rpx;
+
+  }
+  .baocun image{
+    width: 9%;
+    margin-right: 10rpx;
+  }
+  .imagePathBox {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+  }

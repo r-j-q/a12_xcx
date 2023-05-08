@@ -1,0 +1,47 @@
+<view class="personal">
+    <view class="personal-top">
+        <van-cell-group border="{{ false }}">
+            <view class="content" style="border: none;">活动照片</view>
+            <van-uploader file-list="{{ fileList }}" max-count="1" bind:after-read="afterRead" deletable="{{ true }}" bind:delete="onDelete" multiple />
+            <van-field label="场馆名" model:value="{{ ball_field }}" placeholder="请输入场馆名" />
+            <van-field label="场馆编号" model:value="{{ serial_num }}" placeholder="请输入场馆编号" maxlength="30" />
+            <van-field label="约球类型" model:value="{{ ball_type }}" placeholder="请选择约球类型" bindtap="onSetDate" readonly is-link data-val="isType" />
+
+            <van-field label="约球开始时间" model:value="{{ start_date }}" placeholder="请选择约球时间" bindtap="onSetDate" readonly is-link data-val="isBallDate" />
+            <van-field label="约球结束时间" model:value="{{ end_date }}" placeholder="请选择约球结束时间" bindtap="onSetDate" readonly is-link data-val="isSignDate" />
+            <van-field label="水平" model:value="{{ ball_lev }}" placeholder="请选择水平" bindtap="onSetDate" readonly is-link data-val="isball_lev" />
+            <van-field label="位置" model:value="{{ place }}" placeholder="请选择位置" bindtap="handleAddress" autosize readonly is-link />
+            <van-field model:value="{{ address }}" label="详细地址" placeholder="请输入详细地址" />
+            <van-field label="报名人数" model:value="{{ people_num }}" placeholder="请输入报名人数" type="number" />
+            <view class="call">
+                <van-field label="报名费" model:value="{{ sign_fee }}" placeholder="请输入报名费" type="number" />
+                <view class="comint">元/人</view>
+            </view>
+            <van-field label="联系方式" model:value="{{ mobile }}" placeholder="请输入微信号或者手机号" maxlength="20" />
+            <view class="text-area">
+                <textarea class="weui-textarea" placeholder="请输入备注" placeholder-class="textarea-placeholder" style="height: 5em" maxlength="1000" model:value="{{remarks}}" />
+            </view>
+        </van-cell-group>
+    </view>
+    <view class="order-sign" bindtap="handlesign">发起约球</view>
+
+    <!--类型-->
+    <van-popup show="{{ isType }}" bind:close="onClose" position="bottom" z-index="10000">
+        <van-picker columns="{{ typeList }}" bind:cancel="onClose" bind:confirm="confirmType" show-toolbar />
+    </van-popup>
+
+    <!--报名时间-->
+    <van-popup show="{{ isSignDate }}" bind:close="onClose" position="bottom" z-index="10000">
+        <van-datetime-picker bind:cancel="onClose" bind:confirm="confirm" type="datetime" min-date="{{ minDate }}" max-date="{{ maxDate }}" formatter="{{ formatter }}" />
+    </van-popup>
+
+    <!--约球时间-->
+    <van-popup show="{{ isBallDate }}" bind:close="onClose" position="bottom" z-index="10000">
+        <van-datetime-picker bind:cancel="onClose" bind:confirm="confirmDate" type="datetime" min-date="{{ minDate }}" max-date="{{ maxDate }}" formatter="{{ formatter }}" />
+    </van-popup>
+
+    <!--水平-->
+    <van-popup show="{{ isball_lev }}" bind:close="onClose" position="bottom" z-index="10000">
+        <van-picker columns="{{ gradeList }}" bind:cancel="onClose" bind:confirm="confirmGrade" show-toolbar />
+    </van-popup>
+</view>

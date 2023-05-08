@@ -1,0 +1,81 @@
+
+.move{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 11;
+    display: flex;
+}
+
+.movbe{
+    width: 90%;
+    height: 1000rpx;
+    background: #FCF0FF;
+    margin: auto;
+
+}
+
+
+.move-tab{
+    width: 100%;
+    height: 700rpx;
+    overflow-y: scroll;
+  
+}
+.move-tab view{
+    display: flex;
+    height: 140rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+ 
+
+}
+.move-tab view.active{
+    background-color: #982EDF;
+    color: #fff;
+}
+.move-tab image{
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 30rpx;
+    border-radius: 100rpx;
+    margin-right: 30rpx;
+}
+.dengji{
+    color: #999;
+    margin-left: 40rpx;
+}
+.bor-btom{
+    width: 100%;
+    display: flex;
+    margin-top: 40rpx;
+    justify-content: center;
+    align-items: center;
+}
+.bor-btom view{
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    height: 100rpx;
+    background-color: #982EDF;
+    display: flex;
+    color: #fff;
+    border-radius: 10rpx;
+    margin-left: 7%;
+}
+.bor-btom .cancel{
+    background-color: #999;
+
+}
+.sousuo{
+    background-color: #982EDF;
+    color: #fff;
+    width: 120rpx;
+    border-radius: 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

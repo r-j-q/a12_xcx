@@ -1,0 +1,25 @@
+<view class="balanceDetails">
+    <view class="ground">
+        <image src="../../static/image/ground.png" mode="widthFix"></image>
+        <view class="acount">金额</view>
+        <view class="money">￥{{balance}}</view>
+        <view class="withdrawal" bindtap="onWithdrawal">提现</view>
+    </view>
+    <view class="border">
+        <text>交易明细</text>
+        <image src="../../static/image/bottom.png"></image>
+    </view>
+    <view class="bottom">
+        <scroll-view  wx:if="{{list.length > 0}}" slot="content" scroll-y="true" style="height: 95%;margin-top: 10rpx;" bindscrolltolower="handleRefresher" class="row">
+            <view wx:for="{{list}}" wx:key="index" class="cell">
+                <image src="../../static/image/acount.png"></image>
+                <view class="rows">
+                    <text class="tixian">{{type_map[item.type]}}</text>
+                    <text>{{item.created_at}}</text>
+                </view>
+                <view class="bna">{{item.new_amount > 0 ? '+' : ''}}{{item.new_amount}}</view>
+            </view>
+        </scroll-view>
+        <notData wx:else=""></notData>
+    </view>
+</view>

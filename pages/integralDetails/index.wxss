@@ -1,0 +1,79 @@
+@import '../BalanceDetails/index.wxss';
+
+.ground-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.ground {
+    height: 280rpx;
+    display: flex;
+    align-items: center;
+}
+
+.ground view {
+    flex: 1;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.ground view text {
+    margin-top: 20rpx;
+}
+
+.ballList {
+    width: 90%;
+    margin: auto;
+    margin-top: 40rpx;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 20rpx;
+    overflow-y: auto;
+    position: relative;
+}
+
+.ball-call {
+    width: 90%;
+    border-radius: 20rpx 20rpx 0 0;
+    height: 120rpx;
+    display: flex;
+    background: #E134D9;
+    position: fixed;
+
+}
+
+.ball-call text {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 28rpx;
+}
+
+.ball-rows {
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.ball-rows text {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-right: 1px solid #DFDFDF;
+   
+}
+.ball-rows.cont-b{
+    padding-top: 120rpx;
+}

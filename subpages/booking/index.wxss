@@ -1,0 +1,105 @@
+.booking {
+  width: 100%;
+  height: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking .title {
+  overflow: hidden;
+  height: 250rpx;
+}
+
+.booking .title image {
+  width: 100%;
+  height: 100%;
+}
+
+.booking .content {
+  flex: 1;
+  padding-top: 20rpx;
+  display: flex;
+}
+
+.booking .content_left {
+  width: 150rpx;
+}
+
+.booking .content_left_nav {
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking .content_left_nav image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.booking .content_right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking .content_right .options {
+  padding-bottom: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.booking .content_right .options text {
+  color: #ffffff;
+  display: inline-block;
+  padding: 10rpx 40rpx;
+  border-radius: 30rpx;
+  font-size: 20rpx;
+}
+
+.booking .content_right .options text:nth-child(1) {
+  background-color: #ED8641;
+}
+
+.booking .content_right .options text:nth-child(2) {
+  background-color: #5CAE6E;
+}
+
+.booking .content_right .options text + text {
+  margin-left: 15rpx;
+}
+
+.booking .content_right .list_content {
+  flex: 1;
+  padding-left: 10rpx;
+}
+
+.booking .content_right .list_content .list_scroll .item view:nth-child(1) {
+  width: 100%;
+  height: 200rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  overflow: hidden;
+}
+
+.booking .content_right .list_content .list_scroll .item view:nth-child(1) image {
+  height: 100%;
+  width: 100%;
+}
+
+.booking .content_right .list_content .list_scroll .item view:nth-child(2) {
+  width: 100%;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #ffffff;
+  font-size: 20rpx;
+  background-color: #ED8641;
+}
+
+.booking .content_right .list_content .list_scroll .item + .item {
+  margin-top: 10rpx;
+}

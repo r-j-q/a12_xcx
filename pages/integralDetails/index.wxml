@@ -1,0 +1,32 @@
+<view class="balanceDetails">
+    <view class="ground">
+        <image src="../../static/image/ground.png" class="ground-img"></image>
+        <view class="danda">
+            <text style="font-weight: 600;font-size: 38rpx;">{{type_count[1].amount || 0}}</text>
+            <text>单打总积分</text>
+        </view>
+        <view>
+            <text style="font-weight: 600;font-size: 38rpx;">{{type_count[2].amount || 0}}</text>
+            <text>双打总积分</text>
+        </view>
+    </view>
+    <scroll-view class="ballList" height="70%" scroll-y="true" bindscrolltolower="touchBottom">
+        <view class="ball-call">
+            <text>时间</text>
+            <text>积分</text>
+            <text>单打/双打</text>
+
+        </view>
+        <view wx:if="{{list.length> 0}}">
+            <view wx:for="{{list}}" wx:key="index" class="ball-rows {{index== 0 ?'cont-b':''}}">
+                <text>{{item.date}}</text>
+                <text>{{item.amount}}</text>
+                <text>{{item.ball_type == 1 ? '单打':'双打'}}</text>
+            </view>
+        </view>
+
+        <view style="height: 100%;" wx:else>
+            <notData />
+        </view>
+    </scroll-view>
+</view>

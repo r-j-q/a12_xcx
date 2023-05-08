@@ -1,0 +1,93 @@
+<view class="train">
+    <view class="train-right">
+        <!-- <view bindtap="handleAddress">
+            <text>{{address}}</text>
+            <van-icon name="arrow-down" />
+        </view> -->
+        <view bindtap="handleMine">
+            <text>{{mine}}</text>
+            <van-icon name="arrow-down" />
+        </view>
+        <!-- <view bindtap="handleGrade">
+            <text>{{grade}}</text>
+            <van-icon name="arrow-down" />
+        </view> -->
+        <view bindtap="handleLevel">
+            <text>{{level || '级别'}}</text>
+            <van-icon name="arrow-down" />
+        </view>
+        <view bindtap="handleType">
+            <text>{{type || '类型'}}</text>
+            <van-icon name="arrow-down" />
+        </view>
+    </view>
+    <view class="ball-cell" wx:if="{{list.length > 0}}">
+        <view wx:for="{{list}}" wx:key="index" class="home-active" catchtap="handleDetails" data-id="{{item.order_id}}">
+            <view class="left" style="background-color: {{item.color || '#982EDF'}};">
+                <text class="grade">网球{{item.ball_lev}}</text>
+                <text class="type">{{item.ball_type == 1? '单打赛' : '双打赛'}}</text>
+                <!-- <view>{{index == 0 ? item.item.status_display : grade}}</view> -->
+                <view wx:if="{{item.status == 0}}">
+                    已取消
+                </view>
+                <view wx:if="{{item.status == 20}}">
+                    已报名
+                </view>
+                <view wx:if="{{item.status == 30}}">
+                    已报满
+                </view>
+
+                <view wx:if="{{item.status == 50}}">
+                    报名中
+                </view>
+                <view wx:if="{{item.status == 60}}">
+                    已截止
+                </view>
+                <view wx:if="{{item.status == 70}}">
+                    进行中
+                </view>
+                <view wx:if="{{item.status == 80}}">
+                    已结束
+                </view>
+            </view>
+            <view class="right">
+                <view class="right-name">{{item.ball_field}}</view>
+                <view>
+                    <image src="../../static/image/date.png" mode="widthFix"></image>
+                    <text>报名:{{item.deadline}}</text>
+                </view>
+                <view>
+                    <image src="../../static/image/date.png" mode="widthFix"></image>
+                    <text>开赛:{{item.start_date}}</text>
+                </view>
+                <view>
+                    <image src="../../static/image/address1.png" mode="widthFix"></image>
+                    <text>地址:{{item.place}}{{item.address}}</text>
+                </view>
+                <view data-id="{{item.order_id}}"  wx:if="{{item.status == 70 || item.status == 80}}"  catchtap="handleOpts" class="outs">录比分</view>
+            </view>
+        </view>
+    </view>
+    <notData wx:else  style="height: 100vh;"/>
+
+
+    <van-popup show="{{ isAddress }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="请选择" bind:cancel="onClose" bind:confirm="confirmAddress" model:value="{{value}}" />
+    </van-popup>
+
+    <van-popup show="{{ isGrade }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-picker columns="{{ gradeList }}" bind:cancel="onClose" bind:confirm="confirmGrade" show-toolbar />
+    </van-popup>
+
+    <van-popup show="{{ isMine }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-picker columns="{{ mineList }}" bind:cancel="onClose" bind:confirm="confirmMine" show-toolbar />
+    </van-popup>
+
+    <van-popup show="{{ isLevel }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-picker columns="{{ levelList }}" bind:cancel="onClose" bind:confirm="confirmLevel" show-toolbar />
+    </van-popup>
+
+    <van-popup show="{{ isType }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-picker columns="{{ typeList }}" bind:cancel="onClose" bind:confirm="confirmType" show-toolbar />
+    </van-popup>
+</view>

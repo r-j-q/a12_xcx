@@ -1,0 +1,124 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/abloutBall/index",
+        "pages/mine/index",
+        "pages/settle/index",
+        "pages/login/index",
+        "pages/mobileLogin/index",
+        "pages/register/index",
+        "pages/details/index",
+        "pages/starsDetails/index",
+        "pages/train/index",
+        "pages/trainDetails/index",
+        "pages/BonusList/index",
+        "pages/personal/index",
+        "pages/trainOrder/index",
+        "pages/BalanceDetails/index",
+        "pages/authentication/index",
+        "pages/AboutOrder/index",
+        "pages/settleOrder/index",
+        "pages/about/index",
+        "pages/cultivate/index",
+        "pages/cont/index",
+        "pages/integralDetails/index",
+        "pages/outs/index",
+        "pages/result/index",
+        "pages/moneyDetails/index",
+        "pages/withdrawal/index",
+        "pages/should/index",
+        "pages/agree/index",
+        "pages/conceal/index",
+        "pages/share/index",
+        "pages/comment/index",
+        "pages/order_edit/index"
+    ],
+    "subPackages": [
+        {
+            "root": "subpages",
+            "pages": [
+                "booking/index",
+                "booking_settled/index",
+                "booking_tennis/index",
+                "vip/index",
+                "bookingOrders/index",
+                "bookingSucceed/index"
+            ]
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "约约球",
+        "navigationBarTextStyle": "black"
+    },
+    "requiredPrivateInfos": [
+        "chooseLocation",
+        "getLocation"
+    ],
+    "tabBar": {
+        "color": "#BBBBBB",
+        "selectedColor": "#F71EFE",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "text": "首页",
+                "iconPath": "static/tab/home.png",
+                "selectedIconPath": "static/tab/homeEd.png"
+            },
+            {
+                "pagePath": "pages/settle/index",
+                "text": "球星网球分级赛",
+                "iconPath": "static/tab/settle.png",
+                "selectedIconPath": "static/tab/settleEd.png"
+            },
+            {
+                "pagePath": "pages/abloutBall/index",
+                "text": "球星约球",
+                "iconPath": "static/tab/abloutBall.png",
+                "selectedIconPath": "static/tab/abloutBallEd.png"
+            },
+            {
+                "pagePath": "pages/mine/index",
+                "text": "我的",
+                "iconPath": "static/tab/mine.png",
+                "selectedIconPath": "static/tab/mineEd.png"
+            }
+        ]
+    },
+    "usingComponents": {
+        "van-popup": "@vant/weapp/popup/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-action-sheet": "@vant/weapp/action-sheet/index",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+        "van-share-sheet": "@vant/weapp/share-sheet/index",
+        "van-picker": "@vant/weapp/picker/index",
+        "van-image": "@vant/weapp/image/index",
+        "van-calendar": "@vant/weapp/calendar/index",
+        "van-area": "@vant/weapp/area/index",
+        "van-overlay": "@vant/weapp/overlay/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-radio-group": "@vant/weapp/radio-group/index",
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+        "van-radio": "@vant/weapp/radio/index",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-uploader": "@vant/weapp/uploader/index",
+        "van-search": "@vant/weapp/search/index",
+        "van-switch": "@vant/weapp/switch/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-circle": "@vant/weapp/circle/index"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序为您推荐招聘信息"
+        }
+    },
+    "sitemapLocation": "sitemap.json"
+}

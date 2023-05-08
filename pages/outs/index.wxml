@@ -1,0 +1,99 @@
+<view class="outs">
+    <view class="home-select">
+        <view class="home-cell">
+            <view wx:for="{{tabs}}" wx:key="index" class="home-tabs {{pk_type == item.pk_type ? 'active' :''}}" data-pk_type="{{item.pk_type}}" bindtap="handleTabclick">
+                <text>{{item.name}}</text>
+                <image src="../../static/image/bottom.png" wx:if="{{pk_type == item.pk_type}}"></image>
+            </view>
+        </view>
+        <view class="result" bindtap="onResult">成绩</view>
+    </view>
+
+    <view class="ball-cell" wx:if="{{pk_map[pk_type].length > 0 }}">
+        <view wx:for="{{pk_map[pk_type]}}" wx:key="index" class="list">
+            <view class="pk {{member_id == item[0].member_id || member_id == item[1].member_id || member_id == item[0].teammate_id || member_id == item[1].teammate_id ? 'active' :''}}">
+                <view wx:if="{{member_id == item[0].member_id || member_id == item[1].member_id || member_id == item[0].teammate_id || member_id == item[1].teammate_id}}" class="duxiain">我的对线</view>
+                <view wx:if="{{item[0].area_num}}" class="area_num">
+                    场地编号:{{item[0].area_num}}
+                </view>
+                <image src="../../static/image/opts.png"></image>
+                <view class="row">
+                    <view wx:for="{{item}}" wx:key="items" wx:for-item="items">
+                        <text>{{member_list[items.member_id].name}} {{items.teammate_id > 0 ? ' / ' + member_list[items.teammate_id].name :''}}</text>
+                        <text class="co" wx:if="{{(item[0].member_id !== member_id && item[1].member_id !== member_id && item[0].teammate_id !== member_id && item[1].teammate_id !== member_id ) && (item[0].status == 0 ||  item[1].status == 0)}}">0</text>
+                        <text wx:else="" class="co">{{items.score}}</text>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{member_id == item[0].member_id || member_id == item[1].member_id || member_lev}}" class="anniu">
+                <view data-item="{{item}}" wx:if="{{(member_id == item[0].member_id && item[0].status == 0) && item[1].status == 0}}" bindtap="showSouce">上传比分</view>
+                <view data-item="{{item}}" wx:if="{{(member_id == item[0].member_id && item[0].status == 0) && item[1].status == 10}}" bindtap="showSouce">上传争议</view>
+                <view data-item="{{item}}" wx:if="{{(member_id == item[0].member_id && item[0].status == 0) && item[1].status == 10}}" bindtap="onSure">确认比分</view>
+                <view wx:if="{{(member_id == item[0].member_id && item[0].status == 10) && item[1].status == 0}}">等待对手确认</view>
+                <view wx:if="{{(member_id == item[0].member_id && item[0].status == 10) && item[1].status == 10}}">比分已录入</view>
+                <view data-item="{{item}}" wx:if="{{(member_id == item[1].member_id && item[1].status == 0) && item[0].status == 0}}" bindtap="showSouce">上传比分</view>
+                <view data-item="{{item}}" wx:if="{{(member_id == item[1].member_id && item[1].status == 0) && item[0].status == 10}}" bindtap="showSouce">上传争议</view>
+                <view data-item="{{item}}" wx:if="{{(member_id == item[1].member_id && item[1].status == 0) && item[0].status == 10}}" bindtap="onSure">确认比分</view>
+                <view wx:if="{{(member_id == item[1].member_id && item[1].status == 10) && item[0].status == 0}}">等待对手确认</view>
+                <view wx:if="{{(member_id == item[1].member_id && item[1].status == 10) && item[0].status == 10}}">比分已录入</view>
+                <view wx:if="{{(item[1].status !== 10 || item[0].status !== 10) && member_lev &&item.length>1  }}" bindtap="showSouce" data-item="{{item}}">录入比分</view>
+                <view wx:if="{{!item[0].area_num && member_lev &&item.length>1 }}" bindtap="showAreaNum" data-item="{{item}}">录入场地编号</view>
+            </view>
+        </view>
+        <view wx:if="{{pk_type == 10}}" wx:for="{{skip_list}}" wx:key="index" class="list">
+            <view class="pk {{member_id == item.member_id || member_id == item.teammate_id ? 'active' :''}}">
+                <view wx:if="{{member_id == item.member_id  || member_id == item.teammate_id}}" class="duxiain">我的对线</view>
+                <image src="../../static/image/opts.png"></image>
+                <view class="row">
+                    <view>
+                        <text>{{member_list[item.member_id].name}}{{item.teammate_id > 0 ? ' / ' + member_list[item.teammate_id].name :''}} </text>
+                        <text class="co">{{item.score}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <notData wx:else />
+
+
+    <view class="move" wx:if="{{isScore}}">
+        <view class="block">
+            <view class="names">
+                <text>{{member_list[arr[0].member_id].name}}</text>
+            </view>
+            <view class="bifen">
+                <input type="number" bindinput="bindAsouce" value="{{a_souce}}" placeholder="请输入比分" />
+                <input type="number" bindinput="bindBsouce" value="{{b_souce}}" placeholder="请输入比分" />
+            </view>
+            <view class="names">
+                <text>{{member_list[arr[1].member_id].name}}</text>
+            </view>
+            <view class="sure" bindtap="handleSouce">
+                确认比分
+            </view>
+            <view class="cancel" bindtap="cnacelShow">取消录入</view>
+        </view>
+    </view>
+
+
+    <view class="move" wx:if="{{isNum && member_lev}}">
+        <view class="block">
+            <view class="names">
+                <text>{{member_list[arr[0].member_id].name}}</text>
+            </view>
+            <view class="bifen">
+                <input bindinput="bindarea_num" value="{{area_num}}" placeholder="请输入场地编号" style="width: 500rpx;height: 120rpx;" />
+
+            </view>
+            <view class="names">
+                <text>{{member_list[arr[1].member_id].name}}</text>
+            </view>
+            <view class="sure" bindtap="handleNume">
+                确认
+            </view>
+            <view class="cancel" bindtap="cnacelShow">取消</view>
+        </view>
+    </view>
+
+
+</view>

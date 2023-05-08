@@ -1,0 +1,67 @@
+<view class="orders">
+    <view class="orders_await">
+        <text>2023-04-17</text>
+        <text>05:53:00</text>
+        <text>100.00元</text>
+        <text>待使用</text>
+    </view>
+    <view class="orders_list">
+        <scroll-view class="orders_list_scroll" scroll-y="{{true}}" style="height: {{clientHeight}}px;" bindscrolltolower='onBottomRefresh'>
+            <view class="orders_list_li" wx:for="{{list}}" wx:key="index">
+                <view>
+                    <image src="../../static/image/ymq.png" mode="" />
+                    <view>
+                        <view>
+                            <text>{{'1号场'}}</text>
+                            <text>{{'04/19'}}</text>
+                            <text>{{'6:00-7:00'}}</text>
+                        </view>
+                        <view>
+                            <text>{{'羽毛球-双打营地'}}</text>
+                            <text>{{'微信支付'}}</text>
+                        </view>
+                        <view>
+                            <text>{{'2033-04-09'}}</text>
+                            <text>{{'11:38:00'}}</text>
+                            <text>{{'100.00元'}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view>
+                    <text>退订</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- <scroll-view
+    scroll-y="{{true}}"
+     bindscrolltolower='loadMore'
+     >
+        <view class="orders_list">
+            <view class="orders_list_li" wx:for="{{10}}" wx:key="index">
+                <view>
+                    <image src="../../static/image/ymq.png" mode="" />
+                    <view>
+                        <view>
+                            <text>{{'1号场'}}</text>
+                            <text>{{'04/19'}}</text>
+                            <text>{{'6:00-7:00'}}</text>
+                        </view>
+                        <view>
+                            <text>{{'羽毛球-双打营地'}}</text>
+                            <text>{{'微信支付'}}</text>
+                        </view>
+                        <view>
+                            <text>{{'2033-04-09'}}</text>
+                            <text>{{'11:38:00'}}</text>
+                            <text>{{'100.00元'}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view>
+                    <text>退订</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view> -->
+</view>

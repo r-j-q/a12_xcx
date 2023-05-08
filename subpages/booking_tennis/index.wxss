@@ -1,0 +1,305 @@
+@charset "UTF-8";
+.tennis {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 40rpx 0rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.tennis .scroll_box {
+  width: 100%;
+  padding-top: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tennis .scroll_box scroll-view {
+  height: 100%;
+  white-space: nowrap;
+}
+
+.tennis .scroll_box scroll-view .scroll_box_list {
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+}
+
+.tennis .scroll_box scroll-view .scroll_box_list view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tennis .scroll_box scroll-view .scroll_box_list view .scroll_box_list_active {
+  padding-bottom: 8rpx;
+  border-bottom: 8rpx solid #58AD6A;
+}
+
+.tennis .table {
+  margin-top: 20rpx;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tennis .table_fool {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tennis .table_scroll {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  position: relative;
+}
+
+.tennis .table_scroll_list {
+  position: absolute;
+}
+
+.tennis .table_scroll_list .table_header {
+  display: flex;
+}
+
+.tennis .table_scroll_list .table_header view {
+  width: 150rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.tennis .table_scroll_list .table_body {
+  display: flex;
+}
+
+.tennis .table_scroll_list .table_body .table_body_date {
+  width: 100rpx;
+  height: 50rpx;
+  text-align: right;
+  line-height: 50rpx;
+  margin-right: 20rpx;
+}
+
+.tennis .table_scroll_list .table_body .table_body_item {
+  width: 200rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  background-color: #438E53;
+  border: 1rpx solid #ffffff;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.tennis .table_scroll_list .table_body .itemActive0 {
+  background-color: #BFBFBF;
+}
+
+.tennis .table_scroll_list .table_body .itemActive1 {
+  background-color: #438E53;
+}
+
+.tennis .table_scroll_list .table_body .itemActive2 {
+  background-color: #F8C351;
+}
+
+.tennis .table_folt {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tennis .table_folt > view {
+  width: 20%;
+  text-align: center;
+}
+
+.tennis .table_folt > view view {
+  margin-bottom: 10rpx;
+}
+
+.tennis .play {
+  width: 100%;
+  height: 150rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tennis .play .play_amount text:nth-child(2) {
+  font-size: 46rpx;
+  color: #58AD6A;
+}
+
+.tennis .play .play_options {
+  padding: 10rpx 40rpx;
+  color: #ffffff;
+  background-color: #58AD6A;
+}
+
+.tennis .my_popup {
+  min-height: 500rpx;
+  background-color: #ffffff;
+  padding: 20rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+}
+
+.tennis .my_popup view:nth-child(1) .xq {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tennis .my_popup view:nth-child(1) .xq view:nth-child(1) {
+  color: #58AD6A;
+  position: relative;
+}
+
+.tennis .my_popup view:nth-child(1) .xq view:nth-child(1)::before {
+  content: "";
+  width: 5rpx;
+  height: 28rpx;
+  background-color: #58AD6A;
+  position: absolute;
+  left: -20rpx;
+  top: 5rpx;
+}
+
+.tennis .my_popup view:nth-child(1) .xq view:nth-child(1) text:nth-child(1) {
+  padding-right: 10rpx;
+  font-weight: bold;
+}
+
+.tennis .my_popup view:nth-child(1) .xx {
+  font-size: 24rpx;
+}
+
+.tennis .my_popup view:nth-child(1) .xx text:nth-child(1) {
+  padding-right: 40rpx;
+}
+
+.tennis .my_popup view:nth-child(1) .xx + .xx {
+  margin-top: 5rpx;
+}
+
+.tennis .my_popup .notify {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  margin-top: 35rpx;
+}
+
+.tennis .my_popup .notify view {
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.tennis .my_popup .pay {
+  margin-top: 35rpx;
+}
+
+.tennis .my_popup .pay > text {
+  font-size: 24rpx;
+}
+
+.tennis .my_popup .pay > view {
+  margin-top: 20rpx;
+}
+
+.tennis .my_popup .pay > view .my_group .van-radio__icon-wrap {
+  font-size: 10rpx !important;
+  margin-bottom: 5rpx;
+}
+
+.tennis .my_popup .pay > view .my_group .van-radio__icon-wrap .van-radio__icon {
+  font-size: 30rpx !important;
+}
+
+.tennis .my_popup .pay > view .my_group image {
+  width: 30rpx;
+  height: 30rpx;
+  padding-right: 5rpx;
+}
+
+.tennis .my_popup .pay > view .my_group text {
+  font-size: 20rpx;
+}
+
+.tennis .my_popup .payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 50rpx 0 80rpx 0;
+}
+
+.tennis .my_popup .payment view:nth-child(1) text:nth-child(2) {
+  color: #58AD6A;
+}
+
+.tennis .my_popup .payment view:nth-child(1) text + text {
+  padding-left: 10rpx;
+}
+
+.tennis .my_popup .payment view:nth-child(2) {
+  padding: 4rpx 15rpx;
+  background-color: #58AD6A;
+  color: #ffffff;
+}
+
+.van-radio__label {
+  display: flex;
+  align-items: center !important;
+}
+
+.van-radio {
+  margin-top: 10rpx;
+}
+
+/* 项目表格 */
+.table {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableX {
+  border: 1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  width: 93%;
+}
+
+.tr,
+.tableY {
+  width: 1400rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.th,
+.td {
+  width: 200rpx;
+  padding: 10px 0;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+}
+
+.th {
+  font-weight: bold;
+}

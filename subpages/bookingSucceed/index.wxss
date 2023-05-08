@@ -1,0 +1,47 @@
+.succeed {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.succeed .img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+}
+
+.succeed .img image {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.succeed .but {
+  margin-top: 80rpx;
+}
+
+.succeed .but view {
+  width: 400rpx;
+  padding: 10rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.succeed .but view:nth-child(1) {
+  background-color: #58AD6A;
+  color: #ffffff;
+}
+
+.succeed .but view:nth-child(2) {
+  color: #58AD6A;
+  border: 1rpx solid #58AD6A;
+  box-sizing: border-box;
+}
+
+.succeed .but view + view {
+  margin-top: 20rpx;
+}

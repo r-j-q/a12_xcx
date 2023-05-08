@@ -1,0 +1,20 @@
+<view class="result">
+    <view class="mg">
+        <view class="top">
+            <view wx:for="{{tabList}}" wx:key="index" class="cell">
+                {{item}}
+            </view>
+        </view>
+        <view wx:if="{{list.length > 0}}">
+            <view wx:for="{{list}}" wx:key="index" class="rows">
+                <text>{{index + 1}}</text>
+                <text>{{item.name}} {{item.teammate_name || ''}}</text>
+                <text>{{item.total_amount}}</text>
+            </view>
+        </view>
+        <view class="flex" wx:else="">
+            比赛暂未结束
+        </view>
+    </view>
+
+</view>

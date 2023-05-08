@@ -1,0 +1,41 @@
+@import '../personal/index.wxss';
+.content {
+    color: #333333;
+
+    padding: 30rpx;
+    font-size: 28rpx;
+    border-bottom: 1rpx solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.content text {
+    color: #333333;
+    font-size: 24rpx;
+    margin-left: 20rpx;
+}
+.van-uploader__upload,
+.van-uploader__preview {
+    margin-left: 30rpx !important;
+}
+.text-area {
+    width: 96%;
+    background: #F5F5F5;
+    margin: auto;
+    border-radius: 10rpx;
+   
+}
+
+.weui-textarea {
+    width: 92%;
+    margin: auto;
+    background: #F5F5F5;
+    margin-top: 15rpx;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    word-wrap: break-word;
+    white-space: pre-line;
+
+}

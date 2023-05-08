@@ -1,0 +1,9 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText":"成为会员",
+    "enablePullDownRefresh":false,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#E72CD", 
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#58AD6A"
+}

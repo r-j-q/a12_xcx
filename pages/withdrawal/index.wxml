@@ -1,0 +1,21 @@
+<view class="withdrawal" >
+    <view class="withdrawal-header">
+        <view class="blance">可提现金额(元)</view>
+        <view class="price">{{ type == 'balance' ? balance  : bonus}}元</view>
+    </view>
+    <view class="withdrawal-content">
+        <view class="blance-title">请输入提现信息</view>
+        <van-cell-group>
+            <view class="withdrawal-after">
+                <van-field model:value="{{ money }}"  label="提现金额" placeholder="请输入提现金额"  />
+            </view>
+            <van-field model:value="{{ zfb_account }}"  label="支付宝账号" placeholder="请输入支付宝账号" />
+            <van-field model:value="{{ real_name }}"  label="姓名" placeholder="请输入姓名" />
+
+        </van-cell-group>
+        <view class="title">提现到支付宝钱包1-3个工作日到账，请务必确认支付宝账号准确</view>
+        <view class="withdrawal-button" bindtap="onWithDrawal">
+            申请提现
+        </view>
+    </view>
+</view>

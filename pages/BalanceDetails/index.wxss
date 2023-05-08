@@ -1,0 +1,116 @@
+.balanceDetails {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background: #FCF0FF;
+
+}
+
+.ground {
+    width: 94%;
+    margin: auto;
+    position: relative;
+}
+
+.ground image {
+    width: 100%;
+}
+
+.acount {
+    font-size: 30rpx;
+    color: #fff;
+    position: absolute;
+    top: 80rpx;
+    left: 50rpx;
+
+}
+
+.money {
+
+    font-size: 56rpx;
+    color: #fff;
+    position: absolute;
+    top: 150rpx;
+    left: 50rpx;
+}
+
+.withdrawal {
+    position: absolute;
+    top: 150rpx;
+    right: 50rpx;
+    background: #fff;
+    width: 200rpx;
+    height: 70rpx;
+    color: #E134D9;
+
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 120rpx;
+}
+
+.border {
+    display: flex;
+    width: 200rpx;
+    flex-direction: column;
+    align-items: center;
+    color: #982EDF;
+    font-size: 34rpx;
+}
+
+.border image {
+    width: 34%;
+    height: 8rpx;
+    margin-top: 10rpx;
+}
+
+.bottom {
+    width: 94%;
+    margin: auto;
+    position: relative;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-top: 40rpx;
+    margin-bottom: 50rpx;
+
+}
+
+.cell {
+    display: flex;
+    width: 92%;
+    margin: auto;
+    padding: 30rpx 0 30rpx 0;
+    align-items: center;
+    border-bottom: 1px solid #D4D4D4;
+    position: relative;
+}
+
+.cell image {
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rpx;
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.tixian {
+    color: #333333;
+    font-size: 28rpx;
+    font-weight: 400;
+    margin-bottom: 5rpx;
+}
+
+.bna {
+    position: absolute;
+    right: 20rpx;
+    font-size: 28rpx;
+    color: #333333;
+}

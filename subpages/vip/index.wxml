@@ -1,0 +1,36 @@
+<!--pages/vip/index.wxml-->
+<view class="vip">
+    <view class="package">
+        <text>会员充值套餐</text>
+        <view class="package_list">
+            <view wx:for="{{4}}" wx:key="index" class="{{index === active?'active':''}}" data-index="{{index}}" bindtap="ChangePackage">
+                <text>{{'黄金会员'}}</text>
+                <text>¥<text style="font-size: 40rpx;">{{'1000'}}</text></text>
+                <text>{{'那是大家可能是的角度看就'}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="privilege">
+        <text>会员专属特权</text>
+        <view style="padding: 0 30rpx;">
+            <view class="privilege_list">
+                <view wx:for="{{privilegeList}}" wx:key="index">
+                    <view>
+                        <image src="{{item.img}}" mode="widthFix" />
+                    </view>
+                    <text>{{item.msg}}</text>
+                </view>
+            </view>
+            <view class="privilege_agreement">
+                <van-checkbox model:value="{{ checked }}" checked-color="#58AD6A" bind:change="onChange" icon-size="20rpx">
+                </van-checkbox>
+                已阅读并同意
+                <text>《会员服务协议》</text>
+                <text>《隐私政策》</text>
+            </view>
+        </view>
+    </view>
+    <view class="pay" bindtap="Pay">
+        <text>确认支付</text>
+    </view>
+</view>

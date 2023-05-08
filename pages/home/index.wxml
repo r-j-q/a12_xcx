@@ -1,0 +1,72 @@
+<view class="home">
+    <image src="../../static/image/mine_top.png" mode="widthFix" class="home-top" />
+    <view class="home-title">
+        <text class="name">球星来啦</text>
+        <text>Here comes the star</text>
+    </view>
+    <swiper class="swipers" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{swiperList}}" wx:key="index">
+            <swiper-item>
+                <image src="{{item}}" mode="widthFix" class="slide-image" data-currenturl='{{item}}' />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="home-tab">
+        <view wx:for="{{tabList}}" wx:key="index" data-index="{{index}}" bindtap="handleIndex">
+            <image src="{{item.url}}" mode="widthFix" />
+            <text>{{item.label}}</text>
+        </view>
+    </view>
+    <view class="home-border">
+
+    </view>
+    <view class="home-select">
+        <view wx:for="{{2}}" wx:key="index" class="home-tabs {{currentIndex == index ? 'active' :''}}" data-index="{{index}}" bindtap="handleTabclick">
+            <text>{{index == 0 ? '球星网球分级赛' : '球星爱培训'}}</text>
+            <image src="../../static/image/bottom.png" wx:if="{{currentIndex == index}}"></image>
+        </view>
+        <view class="home-right" bindtap="handleAddress">
+            <image src="../../static/image/address.png" class="address"></image>
+            <view>{{address}}</view>
+            <van-icon name="arrow-down" size="16px" />
+        </view>
+    </view>
+    <view wx:if="{{list.length > 0}}">
+        <view wx:for="{{list}}" wx:key="index" class="home-active" bindtap="handleDetails"  data-id="{{item.order_id}}">
+            <view class="left" style="background-color: {{item.color || '#982EDF'}};">
+                <text class="grade">网球{{item.ball_lev}}</text>
+                <text class="type">{{item.ball_type == 1? '单打赛' : '双打赛'}}</text>
+                <view>{{item.status_display}}</view>
+            </view>
+            <view class="right">
+            <view class="right-name">{{item.ball_field}}</view>
+            <view>
+                <image src="../../static/image/date.png"></image>
+                <text>报名截止时间:{{item.deadline}}</text>
+            </view>
+            <view>
+                <image src="../../static/image/date.png"></image>
+                <text>开赛:{{item.start_date}}</text>
+            </view>
+            <view>
+                <image src="../../static/image/address1.png"></image>
+                <text>地址:{{item.place}}{{item.address}}</text>
+            </view>
+          
+        </view>
+        
+        </view>
+    </view>
+    <view style="height: 32vh;" wx:else>
+        <notData />
+    </view>
+    <view class="bifen1" catchtap="handleOpts" >
+        <text>我的</text>
+        <text>赛事</text>
+    </view>
+    <van-popup show="{{ isAddress }}" bind:close="onClose" position="bottom" z-index="1000">
+        <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="请选择" bind:cancel="cancel" bind:confirm="confirm" model:value="{{value}}" />
+    </van-popup>
+
+    <!-- <button bindtap="getUserInfo">获取信息</button> -->
+</view>

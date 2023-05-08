@@ -1,0 +1,29 @@
+<view class="balanceDetails">
+    <view class="ground">
+        <image src="../../static/image/ground.png" mode="widthFix"></image>
+        <view class="acount">奖金金额</view>
+        <view class="money">￥{{bonus}}</view>
+        <view class="withdrawal" bindtap="onWithdrawal">提现</view>
+    </view>
+    <scroll-view class="ballList" height="70%" scroll-y="true" bindscrolltolower="touchBottom">
+        <view class="ball-call">
+            <text>时间</text>
+            <text>奖金</text>
+            <text>单打/双打</text>
+           
+        </view>
+        <view wx:if="{{list.length > 0}}">
+            <view wx:for="{{list}}" wx:key="index" class="ball-rows {{index== 0 ?'cont-b':''}}" >
+            <text>{{item.date}}</text>
+            <text>{{item.new_amount}}</text>
+            <text>{{item.ball_type == 1 ? '单打':'双打'}}</text>
+          
+        </view>
+        </view>
+       
+        
+        <view style="height: 100%;" wx:else>
+            <notData />
+        </view>
+    </scroll-view>
+</view>

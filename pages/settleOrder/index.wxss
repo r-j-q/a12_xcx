@@ -1,0 +1,15 @@
+@import '../AboutOrder/index.wxss';
+.outs{
+    width: 180rpx;
+    height: 50rpx;
+    background-color: #E134D9;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rpx;
+}
+
+.data{
+    height: 100vh !important;
+}

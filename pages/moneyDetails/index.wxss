@@ -1,0 +1,8 @@
+@import '../BalanceDetails/index.wxss';
+@import '../integralDetails/index.wxss';
+.withdrawal{
+    color: #E134D9 !important;
+}
+.money{
+    font-size: 56rpx !important;
+}

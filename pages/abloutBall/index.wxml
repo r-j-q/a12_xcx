@@ -1,0 +1,35 @@
+<view class="ball">
+    <view class="home-select">
+        <view wx:for="{{2}}" wx:key="index" class="home-tabs {{currentIndex == index ? 'active' :''}}" data-index="{{index}}" bindtap="handleTabclick">
+            <text>{{index == 0 ? '球星单打约球' : '球星双打约球'}}</text>
+            <image src="../../static/image/bottom.png" wx:if="{{currentIndex == index}}"></image>
+        </view>
+    </view>
+    <view class="ball-cell" wx:if="{{list.length > 0}}">
+        <view wx:for="{{list}}" wx:key="index" class="home-active" bindtap="handleDetails" data-id="{{item.order_id}}">
+        <view class="left" style="background-color:{{item.color || '#982EDF'}};">
+            <text class="grade" wx:if="{{item.ball_lev !== '0'}}">网球{{item.ball_lev}}</text>
+            <text class="grade" wx:if="{{item.ball_lev == '0'}}">等级不限</text>
+            <text class="type">{{item.ball_type == 1? '单打约球' : '双打约球'}}</text>
+            <view>{{item.status_display}}</view>
+        </view>
+        <view class="right">
+            <view class="right-name">{{item.ball_field}}</view>
+            <view>
+                <image src="../../static/image/date.png"></image>
+                <text>报名截止时间:{{item.deadline}}</text>
+            </view>
+            <view>
+                <image src="../../static/image/date.png"></image>
+                <text>开赛:{{item.start_date}}</text>
+            </view>
+            <view>
+                <image src="../../static/image/address1.png"></image>
+                <text>地址:{{item.place}}{{item.address}}</text>
+            </view>
+        </view>
+    </view>
+    </view>
+     <notData  wx:else/>
+    <image src="../../static/image/about.png"  class="sign-about" catchtap="onAbount"/>
+</view>

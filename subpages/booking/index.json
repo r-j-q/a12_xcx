@@ -1,0 +1,9 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText":"场地选择",
+    "enablePullDownRefresh":false,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#58AD6A", 
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#58AD6A"
+}

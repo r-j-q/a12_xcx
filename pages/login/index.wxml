@@ -1,0 +1,18 @@
+<view class="login">
+    <image src="../../static/image/login_top.png" class="login_top_image" mode="widthFix"></image>
+    <view class="login_send">欢迎登录</view>
+    <view class="login_nav">
+        <view class="login_mobile" bindtap="handleMoblieLogin">手机号码登录</view>
+
+        <button wx:if="{{checked}}" class="once" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
+        <view wx:else class="login_register" bindtap="handleRegister">微信一键登录</view>
+    </view>
+    <view class="login-password">
+        <van-checkbox model:value="{{ checked }}" shape="square" icon-size="12px" checked-color="#D616F1" bind:change="onChange">
+        </van-checkbox>
+        我已阅读并同意
+        <view class="title"  bindtap="onagree">《用户协议》、</view>
+        <view class="title"  bindtap="onconceal">《隐私政策》</view>
+    </view>
+    <van-toast id="van-toast" />
+</view>

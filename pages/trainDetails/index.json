@@ -1,0 +1,10 @@
+{
+    "usingComponents": {},
+    "navigationBarTitleText":"培训详情",
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle":"white",
+    "backgroundColorTop": "#FCF0FF", 
+    "backgroundTextStyle": "dark",
+    "backgroundColorBottom": "#FCF0FF",
+    "navigationBarBackgroundColor": "#E72CD1"
+  }

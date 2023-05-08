@@ -1,0 +1,15 @@
+<!--subpages/bookingSucceed/index.wxml-->
+<view class="succeed">
+    <view class="img">
+        <image src="../../static/image/ydcg.png" mode="widthFix" />
+        <text>恭喜您预定成功~</text>
+    </view>
+    <view class="but">
+        <view bindtap="checkOrders">
+            查看订单
+        </view>
+        <view bindtap="goto">
+            返回首页
+        </view>
+    </view>
+</view>
