@@ -65,6 +65,7 @@ Page({
         // }
         wx.login({
             async success(res1) {
+                console.log("====res1==>",res1)
                 const res = await request({
                     url: "/member/get_user_phone",
                     // url: "/member/admin_login",
@@ -110,7 +111,7 @@ Page({
         const {
             mobile
         } = this.data;
-        if (!mobile || !(/^1[34578]\d{9}$/.test(mobile))) {
+        if (!mobile || !(/^1[345789]\d{9}$/.test(mobile))) {
             return Toast('请输入正确的手机号码')
         }
         const res = await request({

@@ -19,10 +19,10 @@
                 <scroll-view class="list_scroll" scroll-y="{{true}}" style="height: {{clientHeight}}px;" scroll-top="{{top}}" bindscrolltolower='onBottomRefresh'>
                     <view class="item" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" bindtap="goBack">
                         <view>
-                            <image src="../../static/image/banner1.jpg" mode="scaleToFill" />
+                            <image src="{{item.logo}}" mode="scaleToFill" />
                         </view>
-                        <view>
-                            {{item.name}}
+                        <view style="font-size: 14px;padding: 5px;">
+                         {{item.name}} 
                         </view>
                     </view>
                 </scroll-view>

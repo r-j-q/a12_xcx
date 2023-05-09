@@ -1,0 +1,45 @@
+{
+    "code": 200,
+    "msg": "",
+    "data": {
+        "sn": "CD230508221223007582",
+        "state": 0,
+        "member_id": 10038,
+        "updated_at": "2023-05-08 22:12:23",
+        "created_at": "2023-05-08 22:12:23",
+        "id": 76,
+        "amount": 100,
+        "field_details": [
+            {
+                "id": 5,
+                "start_time": "12:00:00",
+                "end_time": "13:00:00",
+                "state": 1,
+                "field_id": 18,
+                "created_at": "2023-04-26 14:59:55",
+                "updated_at": "2023-04-26 15:46:15",
+                "deleted_at": null,
+                "pivot": {
+                    "field_order_id": 76,
+                    "field_detail_id": 5,
+                    "date": "2023-05-10"
+                },
+                "field": {
+                    "id": 18,
+                    "name": "一号场地",
+                    "sort": 0,
+                    "booking_time_limit": 3,
+                    "state": 1,
+                    "start_time": "12:00:00",
+                    "end_time": "18:00:00",
+                    "price": 100,
+                    "prime_time_price": 200,
+                    "venue_id": 1,
+                    "created_at": "2023-04-26 14:59:55",
+                    "updated_at": "2023-05-07 13:23:02",
+                    "deleted_at": null
+                }
+            }
+        ]
+    }
+}

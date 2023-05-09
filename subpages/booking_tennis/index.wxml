@@ -25,8 +25,10 @@
                         <view class="table_body_date" wx:if="{{item.key === '时间'}}" wx:for="{{item.value}}" wx:key="index" wx:for-item='data'>
                             {{data.time}}
                         </view>
-                        <view class="table_body_item {{data.state === 0?'itemActive0':data.state===1?'itemActive1':'itemActive2'}}" style="background-color: {{data.id === changeIndex?'#F2914A':''}};" wx:if="{{item.key !== '时间'}}" wx:for="{{item.value}}" wx:for-item="data" wx:key="data" data-number='{{item.key}}' data-value='{{data}}' data-index='{{data.id}}' bindtap="onItem">
-                            {{'¥'+data.price}}
+                        <view class="table_body_item {{data.state === 0?'itemActive0':data.state===1?'itemActive1':'itemActive2'}}" 
+                        style="background-color: {{data.isActive=== true?'#F2914A':''}};" 
+                        wx:if="{{item.key !== '时间'}}" wx:for="{{item.value}}" wx:for-item="data" wx:key="data" data-number='{{item.key}}' data-value='{{data}}' data-index='{{data.id}}' bindtap="onItem">
+                        {{'¥'+data.price}}
                         </view>
                     </view>
                 </view>
@@ -83,7 +85,7 @@
                         <van-radio name="balance">
                             <image src="../../static/image/about.png" mode="" />
                             <text style="padding-right: 15rpx;">余额支付</text>
-                            <text>{{'(余额8.43元)'}}</text>
+                            <text>(余额{{balance}}元)</text>
                         </van-radio>
                         <van-radio name="wx_pay">
                             <image src="../../static/image/about.png" mode="" />

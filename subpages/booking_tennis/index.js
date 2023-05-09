@@ -11,13 +11,14 @@ Page({
      * 页面的初始数据
      */
     data: {
+        balance:0,
         show: false,
         box_active: 0,
         dateList: [],
         oldDataList: [],
         newDataList: [],
         headerList: [],
-        changeIndex: '',
+
         timeList: [],
         tableColor: [
             {
@@ -38,8 +39,12 @@ Page({
             }
         ],
         amount: 0,
+        changeIndex: '',
         popinfo: {},
-        radio: 'balance'
+        radio: 'balance',
+        newListNum: [],
+        newListNum2: [],
+        newListOne: ""
     },
 
     /**
@@ -49,6 +54,7 @@ Page({
         if (options.venue_id) {
             this.getList(options.venue_id)
         }
+        this.get_member_info()
     },
 
     /**
@@ -96,8 +102,10 @@ Page({
                     value: data[Object.keys(data)[0]][ele]
                 })
             })
+            console.log("newListnewListnewList", newList[1].key)
             list.unshift(' ')
             this.setData({
+                newListOne: newList[1].key,
                 oldDataList: data,
                 newDataList: newList,
                 headerList: list
@@ -123,10 +131,21 @@ Page({
     },
     //切换日期
     changeDate(e) {
+
+
+        let newList = this.data.newDataList;
+        newList.forEach((items) => {
+            items.value.forEach((its) => {
+                its.isActive = false
+            })
+        })
         this.setData({
             box_active: e.currentTarget.dataset.index,
             changeIndex: '',
-            popinfo: {}
+            popinfo: {},
+            newListNum: [],
+            newListNum2: [],
+            newDataList: newList,
         })
         Object.keys(this.data.oldDataList).forEach(ele => {
             if (e.currentTarget.dataset.data.oldDate === ele) {
@@ -148,6 +167,8 @@ Page({
                     })
                 })
                 list.unshift(' ')
+                // console.log('------>8888');
+
                 this.setData({
                     headerList: list,
                     newDataList: newList,
@@ -156,39 +177,223 @@ Page({
         })
     },
     onItem(e) {
+        let _this = this;
+
+        let eNumber = e.currentTarget.dataset.number;
+        if (eNumber === _this.data.newListOne) {
+            _this.onTemChange(e)
+            console.log('场地11111------->', eNumber)
+        } else {
+            _this.onTemChange2(e)
+            console.log('场地22222------->', eNumber)
+
+        }
+        // _this.setData({
+        //     newListOne:  e.currentTarget.dataset.number
+        // })
+
+
+    },
+    onTemChange(e) {
+        let _this = this;
+        // _this.setData({
+        //     newListNum2: []
+        // })
+        let newList = this.data.newDataList;
+
+
+        newList.forEach((items) => {
+
+            if (items.key === e.currentTarget.dataset.number) {
+
+                items.value.forEach((its) => {
+                    if (its.id === e.currentTarget.dataset.value.id) {
+
+                        if (this.data.newListNum.length >= 2 && !its.isActive) {
+                            wx.showToast({
+                                title: '同一场地最多不超过两小时',
+                                icon: 'none'
+                            })
+                            if (its.isActive) {
+                                its.isActive = false
+                            }
+                            return
+                        } else {
+
+                            if (its.isActive) {
+                                its.isActive = false;
+
+                                const deleteID = this.data.newListNum.filter((s) => s.id != its.id);
+
+                                _this.setData({
+                                    newListNum: deleteID
+                                })
+                                // console.log('------>8080', this.data.newListNum)
+
+
+                            } else {
+
+                                if (this.data.newListNum.length < 2) {
+                                    let newlist = _this.data.newListNum;
+                                    newlist.push(its);
+                                    its.isActive = true;
+                                    _this.setData({
+                                        newListNum: newlist
+                                    },
+
+                                    )
+
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                    }
+                })
+            }
+        })
+
         switch (e.currentTarget.dataset.value.state) {
             case 0:
-
                 break;
             case 1:
-                console.log(e.currentTarget);
+
                 this.setData({
+                    newDataList: newList,
                     amount: e.currentTarget.dataset.value.price,
                     changeIndex: e.currentTarget.dataset.index,
                     popinfo: e.currentTarget.dataset
                 })
+                // console.log('newDataList=-222------->', this.data.newDataList)
                 break;
             case 2:
-
                 break;
             default:
                 break;
         }
+    },
+    onTemChange2(e) {
+        let _this = this;
+        // _this.setData({
+        //     newListNum: []
+        // })
+        console.log("this.data.newListNum2", this.data.newListNum2)
+        let newList2 = this.data.newDataList;
+        newList2.forEach((items) => {
+
+            if (items.key === e.currentTarget.dataset.number) {
+
+                items.value.forEach((its) => {
+                    if (its.id === e.currentTarget.dataset.value.id) {
+
+                        if (this.data.newListNum2.length >= 2 && !its.isActive) {
+                            wx.showToast({
+                                title: '同一场地最多不超过两小时',
+                                icon: 'none'
+                            })
+                            if (its.isActive) {
+                                its.isActive = false
+                            }
+                            return
+                        } else {
+
+                            if (its.isActive) {
+                                its.isActive = false;
+
+                                const deleteID = this.data.newListNum2.filter((s) => s.id != its.id);
+
+                                _this.setData({
+                                    newListNum2: deleteID
+                                })
+                                console.log('------>8080', this.data.newListNum2)
 
 
+                            } else {
+
+                                if (this.data.newListNum2.length < 2) {
+                                    let newList3 = _this.data.newListNum2;
+                                    newList3.push(its);
+                                    its.isActive = true;
+                                    _this.setData({
+                                        newListNum2: newList3
+                                    },
+
+                                    )
+
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                    }
+                })
+            }
+        })
+
+        switch (e.currentTarget.dataset.value.state) {
+            case 0:
+                break;
+            case 1:
+                // console.log('------>场地位置',
+                //     e.currentTarget)
+                this.setData({
+                    newDataList: newList2,
+                    amount: e.currentTarget.dataset.value.price,
+                    changeIndex: e.currentTarget.dataset.index,
+                    popinfo: e.currentTarget.dataset
+                })
+                // console.log('newDataList=-222------->', this.data.newDataList)
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
     },
     changeList(e) {
         console.log(e.currentTarget.dataset);
     },
     // 提交订单
     async open() {
-        let list = []
+        let list = [];
+
+        let newList2 = this.data.newDataList;
+
+
+        console.log("------->newList2", newList2)
+        console.log("------->9999newListNum", this.data.newListNum)
+        console.log("------->9999newListNum2", this.data.newListNum2)
+
+        let cancotList = [...this.data.newListNum, ...this.data.newListNum2];
+        console.log("------->cancotList", cancotList)
+
+        // console.log("------->dateIndex", this.data.dateList)
         let dateIndex = this.data.dateList[this.data.box_active]
+
+
         if (Object.keys(this.data.popinfo).length > 0) {
-            list.push({
-                field_detail_id: this.data.popinfo.value.id,
-                date: dateIndex.oldDate
+            cancotList.forEach((flags)=>{
+                list.push({
+                    field_detail_id:   flags.id,
+                    date: dateIndex.oldDate
+                })    
             })
+
+            // list.push({
+            //     field_detail_id: this.data.popinfo.value.id,
+            //     date: dateIndex.oldDate
+            // })
+
+
+            console.log("------->创建订单", list)
             const res = await request({
                 url: "/client/field/order/create",
                 method: "POST",
@@ -221,6 +426,22 @@ Page({
             })
         }
 
+    },
+
+    async  get_member_info(){ 
+        const res = await request({
+            url: "/member/get_member_info",
+            method: "GET",
+            data: {
+                
+            }
+        })
+        if (res.code === 200) {
+            this.setData({
+                balance:res.data.balance
+            })
+            console.log("========>>>>",res)
+        }
     },
     // 支付订单
     async onSetInfo() {
