@@ -117,14 +117,27 @@ Page({
         }
 
     },
-
+    toGo(){
+        wx.navigateTo({
+            url: '/subpages/bookingOrders/index'
+        });
+    },
     toBack() {
         wx.navigateTo({
             url: '/subpages/booking_settled/index',
         })
     },
     goBack(e) {
-        let id = e.currentTarget.dataset.id
+        let id = e.currentTarget.dataset.id;
+        let state = e.currentTarget.dataset.state;
+        console.log('state',state);
+        if(state.state !=1){
+            wx.showToast({
+                title: '未入住',
+                icon: 'none'
+            })
+            return
+        }
         wx.navigateTo({
             url: '/subpages/booking_tennis/index?venue_id=' + encodeURIComponent(id)
         });

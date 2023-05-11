@@ -457,9 +457,25 @@ Page({
             this.setData({
                 show: false
             })
-            wx.navigateTo({
-                url: '/subpages/bookingSucceed/index'
-            });
+                   
+            wx.requestPayment({
+                timeStamp: res.data.timeStamp,
+                nonceStr: res.data.nonceStr,
+                package: res.data.package,
+                signType: res.data.signType,
+                paySign: res.data.paySign,
+
+                success: payRes => {  
+                    wx.navigateTo({
+                        url: '/subpages/bookingSucceed/index'
+                    });
+                },
+                fail: payFail => {
+                    console.log('支付失败！');
+                   
+                } 
+            }) 
+            
         }
 
     },

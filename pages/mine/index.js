@@ -65,15 +65,24 @@ Page({
         wx.navigateTo({
             url: '/pages/AboutOrder/index',
         })
+        
+         
     },
     handleSeletttOrder() {
         wx.navigateTo({
             url: '/pages/settleOrder/index',
         })
+        
     },
     handleTranOrder() {
         wx.navigateTo({
             url: '/pages/trainOrder/index',
+        })
+        
+    },
+    bookingOrders(){
+        wx.navigateTo({
+            url: '/subpages/bookingOrders/index',
         })
     },
     handleBlance() {

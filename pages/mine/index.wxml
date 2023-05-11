@@ -52,6 +52,10 @@
                 <image src="../../static/image/orange_order.png" />
                 <text>培训订单</text>
             </view>
+             <view bindtap="bookingOrders">
+                <image src="../../static/image/booking.png" />
+                <text>场地订单</text>
+            </view>
         </view>
     </view>
     <view class="mine-bottom">

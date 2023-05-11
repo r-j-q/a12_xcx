@@ -1,34 +1,40 @@
 <view class="orders">
-    <view class="orders_await">
+    <!-- <view class="orders_await">
         <text>2023-04-17</text>
         <text>05:53:00</text>
         <text>100.00元</text>
         <text>待使用</text>
-    </view>
+    </view> -->
     <view class="orders_list">
         <scroll-view class="orders_list_scroll" scroll-y="{{true}}" style="height: {{clientHeight}}px;" bindscrolltolower='onBottomRefresh'>
-            <view class="orders_list_li" wx:for="{{list}}" wx:key="index">
+            <view class="orders_list_li" wx:for="{{list}}"  data-data="{{item}}" wx:key="index">
                 <view>
                     <image src="../../static/image/ymq.png" mode="" />
                     <view>
                         <view>
-                            <text>{{'1号场'}}</text>
-                            <text>{{'04/19'}}</text>
-                            <text>{{'6:00-7:00'}}</text>
+                        <view>{{item.created_at}}</view>
+                            <text>{{item.field_details[0].field.name}}</text>
+                             
+                            <text>{{item.field_details[0].start_time}} 至 {{item.field_details[0].end_time}}</text>
                         </view>
                         <view>
-                            <text>{{'羽毛球-双打营地'}}</text>
+                            <text>{{'网球'}}</text>
+                              <text>{{item.amount/100}}元</text>
                             <text>{{'微信支付'}}</text>
                         </view>
-                        <view>
-                            <text>{{'2033-04-09'}}</text>
-                            <text>{{'11:38:00'}}</text>
-                            <text>{{'100.00元'}}</text>
-                        </view>
+                        <!-- <view>
+                            <text>{{item.updated_at}}</text>
+                            <text>{{item.field_details[0].end_time}}</text>
+                           
+                        </view> -->
                     </view>
                 </view>
-                <view>
-                    <text>退订</text>
+                <view style='font-size:13px;width:47px'>
+                    <text  wx:if="{{item.state ==0}}"  bindtap="onSetInfo" data-id="{{item.id}}" data-payType="{{item.pay_type}}">去支付</text>
+                    <text  wx:if="{{item.state ==1}}">已支付</text>
+                    <text  wx:if="{{item.state ==1}}" bindtap="cancels" style='margin-top: 18px;display: flex;' data-id='{{item.id}}'>退款</text>
+                    <text  wx:if="{{item.state ==2}}">已退款</text>
+                    <text  wx:if="{{item.state ==3}}">已取消</text>
                 </view>
             </view>
         </scroll-view>

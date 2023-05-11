@@ -41,6 +41,60 @@ Page({
         if (this.data.page > this.data.last_page) return
         this.getList(this.data.page)
     },
+      // 支付订单
+      async onSetInfo(e) {
+        let id = e.currentTarget.dataset.id;
+        let pay_type = e.currentTarget.dataset.payType;
+         
+        const res = await request({
+            url: "/client/field/order/payment",
+            method: "POST",
+            data: {
+                pay_type: pay_type,
+                id: id
+            }
+        })
+        if (res.code === 200) {
+            this.setData({
+                show: false
+            })
+                   
+            wx.requestPayment({
+                timeStamp: res.data.timeStamp,
+                nonceStr: res.data.nonceStr,
+                package: res.data.package,
+                signType: res.data.signType,
+                paySign: res.data.paySign,
+
+                success: payRes => {  
+                    this.getList(this.data.page)
+                },
+                fail: payFail => {
+                    console.log('支付失败！');
+                   
+                } 
+            }) 
+            
+        }
+
+    },
+    cancels(e){
+        let id = e.currentTarget.dataset.id;
+        const res =   request({
+            url: "/client/field/order/cancel",
+            method: "POST",
+            data: {
+                id
+            }
+        })
+        if (res.code === 200) {
+            wx.showToast({
+                title: '退款申请成功',
+                icon: 'none'
+            })
+        }
+        
+    },
     async getList(page) {
         const res = await request({
             url: "/client/field/order/list",
